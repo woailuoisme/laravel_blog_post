@@ -11,6 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
+        if ($this->command->confirm('Do you want to fresh the database?',true)) {
+            $this->command->call('migrate:fresh');
+            $this->command->error('Database was freshed');
+        }
+
+//        Cache::tags(['blog-post'])->flush();
+        $this->call([
+            UsersTableSeeder::class,
+            CategoriesTablesSeeder::class,
+            PostsTableSeeder::class,
+            CommentsTableSeeder::class,
+            TagsTableSeeder::class,
+            PostTagTableSeeder::class
+        ]);
     }
 }

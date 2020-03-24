@@ -18,5 +18,27 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::apiResource('posts', 'PostAPIController');
 
-Route::resource('posts', 'PostAPIController');
+
+Route::apiResource('comments', 'CommentAPIController');
+
+Route::apiResource('posts', 'PostAPIController');
+
+Route::apiResource('categories', 'CategoryAPIController');
+
+
+
+Route::apiResource('tags', 'TagAPIController');
+
+Route::apiResource('profiles', 'ProfileAPIController');
+
+Route::prefix('v2')->name('api.v2')->namespace('api\v2')->group(fn ()=>{
+    
+});
+
+
+
+
+
+

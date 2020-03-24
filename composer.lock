@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ceccee8fe51be8575fd542fe69fba0b9",
+    "content-hash": "040635db36fac9bb711eeea5d31a4a86",
     "packages": [
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "4.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "99b43723eff9a454c1c7e7124e5b1fa560a97c81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/99b43723eff9a454c1c7e7124e5b1fa560a97c81",
+                "reference": "99b43723eff9a454c1c7e7124e5b1fa560a97c81",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.10"
+            },
+            "suggest": {
+                "ablunier/laravel-lang-installer": "Command for easily add languages to a Laravel project",
+                "andrey-helldar/laravel-lang-publisher": "Easy installation and update of translation files for your project",
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2020-02-02T13:13:33+00:00"
+        },
         {
             "name": "defuse/php-encryption",
             "version": "v2.2.1",
@@ -5932,6 +5984,58 @@
             "time": "2019-12-26T09:49:15+00:00"
         },
         {
+            "name": "mpociot/laravel-test-factory-helper",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mpociot/laravel-test-factory-helper.git",
+                "reference": "4660d6116cf451394343dea7922dc0e9de7e78c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mpociot/laravel-test-factory-helper/zipball/4660d6116cf451394343dea7922dc0e9de7e78c0",
+                "reference": "4660d6116cf451394343dea7922dc0e9de7e78c0",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "doctrine/dbal": "^2.9",
+                "illuminate/console": "^6.0|^7.0",
+                "illuminate/filesystem": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0",
+                "php": "^7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mpociot\\LaravelTestFactoryHelper\\TestFactoryHelperServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mpociot\\LaravelTestFactoryHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Generate Laravel test factories from your existing models",
+            "keywords": [
+                "factory",
+                "laravel",
+                "tests"
+            ],
+            "time": "2020-03-02T16:04:35+00:00"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.9.5",
             "source": {
@@ -6054,6 +6158,61 @@
                 "symfony"
             ],
             "time": "2019-03-07T21:35:13+00:00"
+        },
+        {
+            "name": "ottaviano/faker-gravatar",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ottaviano/faker-gravatar.git",
+                "reference": "a7e914b0ceb69ab33fd43e007c8e9c920d788e85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ottaviano/faker-gravatar/zipball/a7e914b0ceb69ab33fd43e007c8e9c920d788e85",
+                "reference": "a7e914b0ceb69ab33fd43e007c8e9c920d788e85",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "fzaninotto/faker": "^1.6",
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ottaviano\\Faker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dimitri Gritsajuk",
+                    "email": "gritsajuk.dimitri@gmail.com"
+                }
+            ],
+            "description": "Faker Gravatar image provider",
+            "keywords": [
+                "avatar",
+                "data",
+                "faker",
+                "fixtures",
+                "gravatar",
+                "image"
+            ],
+            "time": "2019-10-06T21:26:13+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -7805,8 +7964,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "infyomlabs/laravel-generator": 20,
-        "infyomlabs/adminlte-templates": 20
+        "infyomlabs/adminlte-templates": 20,
+        "infyomlabs/laravel-generator": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
