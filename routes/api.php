@@ -20,22 +20,28 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('posts', 'PostAPIController');
 
-
 Route::apiResource('comments', 'CommentAPIController');
 
 Route::apiResource('posts', 'PostAPIController');
 
 Route::apiResource('categories', 'CategoryAPIController');
 
-
-
 Route::apiResource('tags', 'TagAPIController');
 
 Route::apiResource('profiles', 'ProfileAPIController');
+Route::apiResource('posts.comments','PostCommentController');
 
-Route::prefix('v2')->name('api.v2')->namespace('api\v2')->group(fn ()=>{
-    
+Route::prefix('v2')->name('api.v2')->namespace('api\v2')->group(function () {
+    Route::get('/status', function () {
+        return response()->json(['status' => true]);
+    });
 });
+
+Route::fallback(function () {
+    return response()->json([
+        'message' => 'Not found'
+    ], 404);
+})->name('api.fallback');
 
 
 
