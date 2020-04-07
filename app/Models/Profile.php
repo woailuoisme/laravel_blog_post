@@ -18,7 +18,7 @@ class Profile extends Model
 
 
     public array $fillable = [
-
+        'avatar'
     ];
 
     /**

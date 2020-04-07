@@ -19,9 +19,11 @@ class CreateProfilesTable extends Migration
             $table->string('avatar', 255);
             $table->timestamps();
             $table->unsignedBigInteger('user_id')->unique();
-        });
-        Schema::table('profiles',function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->unique(['user_id']);
         });
     }
 

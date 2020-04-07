@@ -50,6 +50,7 @@ class SomeTablesCreated extends Migration
                 ->on('carts')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->unique(['user_id']);
             $table->timestamps();
         });
         Schema::create('orders', function (Blueprint $table) {

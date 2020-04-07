@@ -4,17 +4,19 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreateProfileAPIRequest;
 use App\Http\Requests\API\UpdateProfileAPIRequest;
+use App\Http\Resources\UserProfileResource;
 use App\Models\Profile;
 use App\Repositories\ProfileRepository;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 /**
  * Class ProfileController
  * @package App\Http\Controllers\API
  */
-
 class ProfileAPIController extends AppBaseController
 {
     /** @var  ProfileRepository */
@@ -23,24 +25,20 @@ class ProfileAPIController extends AppBaseController
     public function __construct(ProfileRepository $profileRepo)
     {
         $this->profileRepository = $profileRepo;
+        $this->middleware('auth:api');
     }
-
     /**
      * Display a listing of the Profile.
      * GET|HEAD /profiles
      *
      * @param Request $request
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
     {
-        $profiles = $this->profileRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
-
-        return $this->sendResponse($profiles->toArray(), 'Profiles retrieved successfully');
+        $user = Auth::guard('api')->user();
+        return $this->sendResponse(new UserProfileResource($user->profile),
+            'Profiles retrieved successfully');
     }
 
     /**
@@ -49,15 +47,16 @@ class ProfileAPIController extends AppBaseController
      *
      * @param CreateProfileAPIRequest $request
      *
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(CreateProfileAPIRequest $request)
     {
-        $input = $request->all();
-
-        $profile = $this->profileRepository->create($input);
-
-        return $this->sendResponse($profile->toArray(), 'Profile saved successfully');
+        $user = Auth::guard('api')->user();
+        $profile=Profile::create([
+            'avatar'=>$request->input('avatar'),
+            'user_id'=>$user->id
+        ]);
+        return $this->sendResponse($profile, 'Profile saved successfully');
     }
 
     /**
@@ -66,18 +65,19 @@ class ProfileAPIController extends AppBaseController
      *
      * @param int $id
      *
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
         /** @var Profile $profile */
-        $profile = $this->profileRepository->find($id);
+        $user = Auth::guard('api')->user();
 
-        if (empty($profile)) {
+        if (empty($user->profile)) {
             return $this->sendError('Profile not found');
         }
 
-        return $this->sendResponse($profile->toArray(), 'Profile retrieved successfully');
+        return $this->sendResponse(new UserProfileResource($user->profile),
+            'Profile retrieved successfully');
     }
 
     /**
@@ -111,9 +111,9 @@ class ProfileAPIController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {

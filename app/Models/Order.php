@@ -21,10 +21,10 @@ class Order extends Model
         'created' => 'created',
         'pending' => 'pending',
         'processing' => 'processing',
+        'payed' => 'payed',
         'completed' => 'canceled',
         'failed' => 'failed'
     ];
-
 
     public array $fillable = [
         'user_id', 'statusCode', 'order_num', 'total_price'
