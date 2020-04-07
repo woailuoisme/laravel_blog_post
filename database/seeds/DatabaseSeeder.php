@@ -17,12 +17,18 @@ class DatabaseSeeder extends Seeder
         }
 //        Cache::tags(['blog-post'])->flush();
         $this->call([
-            UsersTableSeeder::class,
-            CategoriesTablesSeeder::class,
-            PostsTableSeeder::class,
-            CommentsTableSeeder::class,
-            TagsTableSeeder::class,
-            PostTagTableSeeder::class
+//            UsersTableSeeder::class,
+//            CategoriesTablesSeeder::class,
+//            PostsTableSeeder::class,
+//            CommentsTableSeeder::class,
+//            TagsTableSeeder::class,
+//            PostTagTableSeeder::class,
+//
+            ProductsTableSeeder::class,
+//            OrdersTableSeeder::class,
+//            CartsTableSeeder::class,
+//            OrderProductTableSeeder::class,
+//            CartProductTableSeeder::class
         ]);
     }
 }

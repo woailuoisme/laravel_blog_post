@@ -19,13 +19,13 @@ class PostTagTableSeeder extends Seeder
             return;
         }
 
-        $howManyMin = (int)$this->command->ask('Minimum tags on blog post?', 0);
-        $howManyMax = min((int)$this->command->ask('Maximum tags on blog post?', $tagCount), $tagCount);
+//        $howManyMin = (int)$this->command->ask('Minimum tags on blog post?', 0);
+//        $howManyMax = min((int)$this->command->ask('Maximum tags on blog post?', $tagCount), $tagCount);
 
-        \App\Models\Post::all()->each(function (\App\Models\Post $post) use($howManyMin, $howManyMax) {
-            $take = random_int($howManyMin, $howManyMax);
+        \App\Models\Post::all()->each(function (\App\Models\Post $post) use($tagCount) {
+            $take = random_int(0, $tagCount);
             $tags = Tag::inRandomOrder()->take($take)->get()->pluck('id');
-            $post->tags()->sync($tags);
+            $post->tags()->sync($tags,);
         });
     }
 }
