@@ -29,7 +29,7 @@ return [
 
         'controller'        => app_path('Http/Controllers/'),
 
-        'api_controller'    => app_path('Http/Controllers/API/'),
+        'api_controller'    => app_path('Http/Controllers/API/Admin'),
 
         'repository_test'   => base_path('tests/Repositories/'),
 
@@ -122,7 +122,7 @@ return [
 
     'options' => [
 
-        'softDelete' => true,
+        'softDelete' => false,
 
         'save_schema_file' => true,
 
@@ -170,7 +170,7 @@ return [
 
         'menu'          => [
 
-            'enabled'       => true,
+            'enabled'       => false,
 
             'menu_file'     => 'layouts/menu.blade.php',
         ],

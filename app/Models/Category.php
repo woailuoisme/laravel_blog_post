@@ -12,9 +12,7 @@ class Category extends Model
 
     public $table = 'categories';
 
-
-    protected $dates = ['deleted_at'];
-
+    protected array $dates = ['deleted_at'];
 
     public array $fillable = [
 
@@ -26,7 +24,7 @@ class Category extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer'
+        'id' => 'integer',
     ];
 
     /**

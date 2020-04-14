@@ -12,7 +12,10 @@ class SignUpRequest extends FormRequest
     public function rules()
     {
 
-        return User::$signUpRules;
+        return [
+            'email' => 'required|email',
+            'password' => 'required'
+        ];
     }
 
     public function authorize()

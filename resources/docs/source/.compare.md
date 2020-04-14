@@ -1,0 +1,3866 @@
+---
+title: API Reference
+
+language_tabs:
+- bash
+- javascript
+
+includes:
+
+search: true
+
+toc_footers:
+- <a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a>
+---
+<!-- START_INFO -->
+# Info
+
+Welcome to the generated API reference.
+[Get Postman Collection](http://localhost/docs/collection.json)
+
+<!-- END_INFO -->
+
+#Auth management
+
+APIs for 用户认证管理
+<!-- START_2be1f0e022faf424f18f30275e61416e -->
+## signin
+用户登录
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/auth/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"rem","password":"nihil"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "rem",
+    "password": "nihil"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/login`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `email` | string |  required  | 
+        `password` | string |  required  | 
+    
+<!-- END_2be1f0e022faf424f18f30275e61416e -->
+
+<!-- START_a68ff660ea3d08198e527df659b17963 -->
+## api/v1/auth/logout
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/auth/logout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/logout`
+
+
+<!-- END_a68ff660ea3d08198e527df659b17963 -->
+
+<!-- START_823c3f3bc0a262b227a58aca2dd2e5f5 -->
+## me
+获取用户信息
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/auth/me" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/me"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "id": 4,
+    "name": "Jessica Jones",
+    "roles": [
+        "admin"
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/auth/me`
+
+
+<!-- END_823c3f3bc0a262b227a58aca2dd2e5f5 -->
+
+<!-- START_1c1379ad98c1e4337433460cbb47992e -->
+## api/v1/auth/refresh
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/auth/refresh" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/refresh"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/refresh`
+
+
+<!-- END_1c1379ad98c1e4337433460cbb47992e -->
+
+<!-- START_fb963cd2a8a1aea083363e2d2f4d272a -->
+## api/v1/auth/signup
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/auth/signup" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/signup"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/signup`
+
+
+<!-- END_fb963cd2a8a1aea083363e2d2f4d272a -->
+
+<!-- START_b8dd94c8d181bd60f420fc66bd57555b -->
+## api/v1/auth/password/forget
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/auth/password/forget" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/password/forget"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/password/forget`
+
+
+<!-- END_b8dd94c8d181bd60f420fc66bd57555b -->
+
+<!-- START_11eddaef605264cbbe21511716d17d51 -->
+## api/v1/auth/password/reset
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/auth/password/reset" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/auth/password/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/auth/password/reset`
+
+
+<!-- END_11eddaef605264cbbe21511716d17d51 -->
+
+#general
+
+
+<!-- START_0c068b4037fb2e47e71bd44bd36e3e2a -->
+## Authorize a client to access the user&#039;s account.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/oauth/authorize" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET oauth/authorize`
+
+
+<!-- END_0c068b4037fb2e47e71bd44bd36e3e2a -->
+
+<!-- START_e48cc6a0b45dd21b7076ab2c03908687 -->
+## Approve the authorization request.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/oauth/authorize" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST oauth/authorize`
+
+
+<!-- END_e48cc6a0b45dd21b7076ab2c03908687 -->
+
+<!-- START_de5d7581ef1275fce2a229b6b6eaad9c -->
+## Deny the authorization request.
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/oauth/authorize" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE oauth/authorize`
+
+
+<!-- END_de5d7581ef1275fce2a229b6b6eaad9c -->
+
+<!-- START_a09d20357336aa979ecd8e3972ac9168 -->
+## Authorize a client to access the user&#039;s account.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/oauth/token" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST oauth/token`
+
+
+<!-- END_a09d20357336aa979ecd8e3972ac9168 -->
+
+<!-- START_d6a56149547e03307199e39e03e12d1c -->
+## Get all of the authorized tokens for the authenticated user.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/oauth/tokens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET oauth/tokens`
+
+
+<!-- END_d6a56149547e03307199e39e03e12d1c -->
+
+<!-- START_a9a802c25737cca5324125e5f60b72a5 -->
+## Delete the given token.
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/oauth/tokens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/tokens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE oauth/tokens/{token_id}`
+
+
+<!-- END_a9a802c25737cca5324125e5f60b72a5 -->
+
+<!-- START_abe905e69f5d002aa7d26f433676d623 -->
+## Get a fresh transient token cookie for the authenticated user.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/oauth/token/refresh" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/token/refresh"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST oauth/token/refresh`
+
+
+<!-- END_abe905e69f5d002aa7d26f433676d623 -->
+
+<!-- START_babcfe12d87b8708f5985e9d39ba8f2c -->
+## Get all of the clients for the authenticated user.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/oauth/clients" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/clients"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET oauth/clients`
+
+
+<!-- END_babcfe12d87b8708f5985e9d39ba8f2c -->
+
+<!-- START_9eabf8d6e4ab449c24c503fcb42fba82 -->
+## Store a new client.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/oauth/clients" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/clients"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST oauth/clients`
+
+
+<!-- END_9eabf8d6e4ab449c24c503fcb42fba82 -->
+
+<!-- START_784aec390a455073fc7464335c1defa1 -->
+## Update the given client.
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/oauth/clients/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/clients/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT oauth/clients/{client_id}`
+
+
+<!-- END_784aec390a455073fc7464335c1defa1 -->
+
+<!-- START_1f65a511dd86ba0541d7ba13ca57e364 -->
+## Delete the given client.
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/oauth/clients/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/clients/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE oauth/clients/{client_id}`
+
+
+<!-- END_1f65a511dd86ba0541d7ba13ca57e364 -->
+
+<!-- START_9e281bd3a1eb1d9eb63190c8effb607c -->
+## Get all of the available scopes for the application.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/oauth/scopes" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/scopes"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET oauth/scopes`
+
+
+<!-- END_9e281bd3a1eb1d9eb63190c8effb607c -->
+
+<!-- START_9b2a7699ce6214a79e0fd8107f8b1c9e -->
+## Get all of the personal access tokens for the authenticated user.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/oauth/personal-access-tokens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/personal-access-tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET oauth/personal-access-tokens`
+
+
+<!-- END_9b2a7699ce6214a79e0fd8107f8b1c9e -->
+
+<!-- START_a8dd9c0a5583742e671711f9bb3ee406 -->
+## Create a new personal access token for the user.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/oauth/personal-access-tokens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/personal-access-tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST oauth/personal-access-tokens`
+
+
+<!-- END_a8dd9c0a5583742e671711f9bb3ee406 -->
+
+<!-- START_bae65df80fd9d72a01439241a9ea20d0 -->
+## Delete the given token.
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/oauth/personal-access-tokens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/oauth/personal-access-tokens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE oauth/personal-access-tokens/{token_id}`
+
+
+<!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+
+<!-- START_64d774609f980940c2c5de61e3024951 -->
+## api/v1/cart
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/cart" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/cart"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET api/v1/cart`
+
+
+<!-- END_64d774609f980940c2c5de61e3024951 -->
+
+<!-- START_b401650a7f34af0237778490ff019e95 -->
+## api/v1/cart/add
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/cart/add" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/cart/add"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/cart/add`
+
+
+<!-- END_b401650a7f34af0237778490ff019e95 -->
+
+<!-- START_44f6ca0b9fd69ba50dcb6e5309c1eb04 -->
+## api/v1/cart/checkout
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/cart/checkout" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/cart/checkout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/cart/checkout`
+
+
+<!-- END_44f6ca0b9fd69ba50dcb6e5309c1eb04 -->
+
+<!-- START_ed9be25f27c3f8805b1dd2ea55d822ca -->
+## api/v1/cart/quantity
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/cart/quantity" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/cart/quantity"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/cart/quantity`
+
+
+<!-- END_ed9be25f27c3f8805b1dd2ea55d822ca -->
+
+<!-- START_57af186ee2d224bda43df77a1ccc2e11 -->
+## api/v1/cart/clear
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/cart/clear" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/cart/clear"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/cart/clear`
+
+
+<!-- END_57af186ee2d224bda43df77a1ccc2e11 -->
+
+<!-- START_0dfeb5eebc3d94d959f79f1961830247 -->
+## Store a newly created Profile in storage.
+
+POST /profiles
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/user/profile" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/profile"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/profile`
+
+
+<!-- END_0dfeb5eebc3d94d959f79f1961830247 -->
+
+<!-- START_9dd4fdf9498d19992ea5edb5cccbe357 -->
+## Update the specified Profile in storage.
+
+PUT/PATCH /profiles/{id}
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/user/profile/update" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/profile/update"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/profile/update`
+
+
+<!-- END_9dd4fdf9498d19992ea5edb5cccbe357 -->
+
+<!-- START_8a4d15dcbadf16adf64dd6109f40540a -->
+## Display the specified Profile.
+
+GET|HEAD /profiles/{id}
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/user/profile" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/profile"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET api/v1/user/profile`
+
+
+<!-- END_8a4d15dcbadf16adf64dd6109f40540a -->
+
+<!-- START_3951946c5b467d055a5a919f5dfbd3cd -->
+## api/v1/user/favorite
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/user/favorite" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/favorite"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/favorite`
+
+
+<!-- END_3951946c5b467d055a5a919f5dfbd3cd -->
+
+<!-- START_5283838c7a1d72b56fb81d58c328ac78 -->
+## api/v1/user/favorites
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/user/favorites" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/favorites"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET api/v1/user/favorites`
+
+
+<!-- END_5283838c7a1d72b56fb81d58c328ac78 -->
+
+<!-- START_ed0b9aac0932d5b5b78ed3f6d3fce7b4 -->
+## api/v1/user/cancel_favorite
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/user/cancel_favorite" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/cancel_favorite"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/cancel_favorite`
+
+
+<!-- END_ed0b9aac0932d5b5b78ed3f6d3fce7b4 -->
+
+<!-- START_6f6c94f45f6a60eed013661b8c0bed36 -->
+## api/v1/user/like_product
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/user/like_product" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/like_product"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/like_product`
+
+
+<!-- END_6f6c94f45f6a60eed013661b8c0bed36 -->
+
+<!-- START_d6df4d89fd6af7b6993651d81a2f3ee2 -->
+## api/v1/user/unlike_product
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/user/unlike_product" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/user/unlike_product"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/user/unlike_product`
+
+
+<!-- END_d6df4d89fd6af7b6993651d81a2f3ee2 -->
+
+<!-- START_25bf4092f5e200124a149897733aac34 -->
+## Display a listing of the Order.
+
+GET|HEAD /orders
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/orders" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/orders"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET api/v1/orders`
+
+
+<!-- END_25bf4092f5e200124a149897733aac34 -->
+
+<!-- START_c79cb2035f69ac8078c2cec9fc2fab4a -->
+## Store a newly created Order in storage.
+
+POST /orders
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/orders" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/orders"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/orders`
+
+
+<!-- END_c79cb2035f69ac8078c2cec9fc2fab4a -->
+
+<!-- START_b4bbc4b1b4c4ddc2effe9e5e2475dd8d -->
+## Display the specified Order.
+
+GET|HEAD /orders/{id}
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/orders/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/orders/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Unauthorized"
+}
+```
+
+### HTTP Request
+`GET api/v1/orders/{order}`
+
+
+<!-- END_b4bbc4b1b4c4ddc2effe9e5e2475dd8d -->
+
+<!-- START_2e6d997181b1c50b2b94eaa14b66f016 -->
+## Update the specified Order in storage.
+
+PUT/PATCH /orders/{id}
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/orders/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/orders/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/orders/{order}`
+
+`PATCH api/v1/orders/{order}`
+
+
+<!-- END_2e6d997181b1c50b2b94eaa14b66f016 -->
+
+<!-- START_f34ad9d71f18dd67576cc6db60268192 -->
+## Remove the specified Order from storage.
+
+DELETE /orders/{id}
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/v1/orders/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/orders/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/orders/{order}`
+
+
+<!-- END_f34ad9d71f18dd67576cc6db60268192 -->
+
+<!-- START_de624ebdfc033d5ef2ff088a06eb8266 -->
+## Display a listing of the Post.
+
+GET|HEAD /posts
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/posts" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Posts retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "category_id": 20,
+            "user_id": 7,
+            "title": "Aperiam impedit tenetur quo veritatis dolorem quae ratione occaecati est quasi vel non sint.",
+            "content": "Ipsam sed neque dicta itaque. Ut impedit est quos quas omnis. Nisi aut est et omnis praesentium. Necessitatibus accusamus animi ea veritatis laboriosam qui.\n\nRepudiandae vitae aut qui dolorum asperiores expedita voluptatem. Aut doloremque mollitia doloribus consequuntur enim officiis. Iure est fuga sit est. Quidem eos veritatis placeat voluptatem.\n\nQuo consequatur et sunt perferendis voluptatem ea officia. Quibusdam perspiciatis atque architecto earum dolorem est. Et eos dignissimos molestiae commodi nihil architecto ea.\n\nQuia veniam nihil explicabo eius. Harum laboriosam cumque repellat enim nesciunt omnis delectus quia. Nisi sed impedit velit quo illo modi.\n\nAlias at voluptates in et qui molestiae. Delectus animi dolor enim voluptatem sint sequi et enim. Illo quas beatae rerum autem vel. Quaerat possimus quia voluptas ea officiis.",
+            "view_count": 1827,
+            "is_published": 1,
+            "created_at": "2020-03-10 10:50:13",
+            "updated_at": "2020-04-06 02:07:14"
+        },
+        {
+            "id": 2,
+            "category_id": 18,
+            "user_id": 1,
+            "title": "Quia enim ad numquam in inventore atque repellendus eaque explicabo asperiores.",
+            "content": "Perspiciatis omnis quo optio occaecati inventore autem. Excepturi nobis magni est nihil impedit praesentium. Aut delectus sit tempore.\n\nAut at non optio dolores dolorem aut harum accusantium. Ipsam quidem soluta praesentium fugit qui. Veritatis aperiam consequatur aut. Dolorum ea perferendis voluptatem ipsam voluptatibus nisi.\n\nOccaecati accusamus dignissimos sit quas. Debitis nulla eos iusto blanditiis autem esse qui. Distinctio tenetur voluptatem ex nostrum sed voluptas consequatur. Iusto consequatur ad qui sit officia itaque asperiores. Asperiores nobis et et molestias ut ut.\n\nCulpa sequi omnis ex sapiente similique dignissimos. Alias consequatur dolorum placeat nisi. Laborum quia repellat sequi consequuntur unde officia. Dolor alias inventore ducimus placeat aut.\n\nAliquid consequatur ratione qui temporibus molestiae. Quasi non at maiores fugit. Quidem laboriosam ipsum nihil distinctio atque soluta voluptatem ut. Eum soluta non facilis similique beatae odio cum.",
+            "view_count": 2096,
+            "is_published": 0,
+            "created_at": "2020-03-15 04:26:51",
+            "updated_at": "2020-03-24 07:47:28"
+        },
+        {
+            "id": 3,
+            "category_id": 8,
+            "user_id": 19,
+            "title": "Aut harum et hic quibusdam et dolorem est.",
+            "content": "Reprehenderit ut ipsam aspernatur sapiente animi laboriosam. Molestias ducimus ea voluptatem alias ex ducimus. Unde quam consectetur est sed. Odit fugit quis ipsum voluptate molestias nisi iste quidem.\n\nAnimi rerum voluptas aut est quos eligendi neque. Quis ex excepturi repellat. Dolor modi enim dignissimos quisquam omnis qui tempora. Sapiente aperiam ea et molestiae molestiae. Odio reiciendis qui occaecati molestias modi quas.\n\nDolore ut enim facilis nostrum. Autem qui ab eum eius animi sint deserunt. Quo rerum maxime eligendi et ut voluptas.\n\nQuibusdam eius quia consequatur nam. Eius dolorem enim est eos. Voluptas qui consectetur nobis reiciendis. Non rerum praesentium quod.\n\nNihil iure repellendus pariatur amet. Ut voluptas amet ratione fuga ut illum laborum aut. Quia quidem qui adipisci officiis aut eaque debitis rem.",
+            "view_count": 1638,
+            "is_published": 1,
+            "created_at": "2020-03-28 19:30:00",
+            "updated_at": "2020-03-22 23:44:22"
+        },
+        {
+            "id": 4,
+            "category_id": 17,
+            "user_id": 2,
+            "title": "Vitae numquam sit in odit quia ad fugiat eum et qui consequuntur est praesentium.",
+            "content": "Aut quia qui praesentium. Voluptatibus sed et consequatur. Sequi aut in voluptatem vel.\n\nUt magnam accusantium ex. Officiis modi dolorem neque. Voluptas et officia neque eum. Quaerat sequi beatae quis expedita tempore et.\n\nQuis qui culpa perspiciatis. Illo quae voluptatibus ad alias et nihil. Voluptate corrupti sequi quia qui suscipit. Optio ratione ipsa ut nihil.\n\nAperiam repellat repellendus corporis eaque inventore. Voluptas ipsam atque impedit corrupti. Ipsam enim ut nihil nihil repellat quam.\n\nAutem optio et et sint sint ab. Maxime et vero sit et ipsam. Consectetur et culpa commodi suscipit dignissimos quas accusantium.",
+            "view_count": 1620,
+            "is_published": 1,
+            "created_at": "2020-03-18 04:01:09",
+            "updated_at": "2020-03-19 07:00:05"
+        },
+        {
+            "id": 5,
+            "category_id": 7,
+            "user_id": 11,
+            "title": "Quia fugiat possimus sit placeat consequatur saepe laboriosam culpa voluptates recusandae dolores.",
+            "content": "Enim non et ab architecto vero. Dolor natus placeat saepe culpa dolorem odit nemo. Sint a aut ea dolores amet voluptas illo. Debitis labore eaque excepturi quis.\n\nSint temporibus rem debitis ipsum suscipit sit et id. Voluptatibus sapiente qui est quo unde autem sint. Ut in possimus saepe veritatis. Veniam maxime nobis quia ullam molestias nisi nostrum. Et dolor amet odio ut inventore.\n\nDebitis ea tempora cupiditate corrupti. Recusandae sequi perferendis nisi quis et dolor placeat. Autem quia et temporibus saepe. Velit magni eligendi maiores et.\n\nEst nisi ipsa nesciunt occaecati. Vel voluptatem facere est consequatur at sit. Illo reiciendis nihil illum eos ut eveniet. Mollitia ex ducimus tempore blanditiis dolor exercitationem.\n\nEst sunt animi voluptatem non est. Minima impedit sed ipsa est ab dolores ea. Non totam ea architecto. Et soluta saepe neque rerum explicabo excepturi.",
+            "view_count": 4634,
+            "is_published": 0,
+            "created_at": "2020-04-03 17:07:42",
+            "updated_at": "2020-03-31 20:54:55"
+        },
+        {
+            "id": 6,
+            "category_id": 3,
+            "user_id": 11,
+            "title": "Doloremque qui dolor hic dolore quis tempore.",
+            "content": "Voluptate vitae beatae dolor non et. Rerum officia dicta odit doloribus dolores consectetur reiciendis. Placeat atque repudiandae ut neque totam harum qui eveniet. Tenetur ea vero dolor non ducimus sed.\n\nVoluptatem voluptates consequatur neque et exercitationem similique quasi. Atque ut consequatur temporibus ut corporis exercitationem nesciunt. Rem nam inventore vero sit et omnis minima.\n\nMinus provident aut et dolorum tenetur. Ut harum impedit possimus repudiandae hic vitae. Autem cum voluptas non impedit sit. Eligendi ea et debitis natus ullam.\n\nVeritatis aut fuga cupiditate. Modi dicta quia tenetur cum ab ad et. Magni sint commodi optio maxime in iusto. Voluptates rerum laudantium voluptatum sit. Omnis accusantium earum quibusdam quia.\n\nNam odio et deleniti quis incidunt. Autem odio enim tempora earum eaque. Deleniti odio ratione voluptatum ipsum voluptates repudiandae ex. Voluptatem vitae et nobis dolorem ut enim ut.",
+            "view_count": 8479,
+            "is_published": 1,
+            "created_at": "2020-03-04 14:57:42",
+            "updated_at": "2020-03-28 17:42:02"
+        },
+        {
+            "id": 7,
+            "category_id": 20,
+            "user_id": 11,
+            "title": "Dignissimos sint sunt ut nulla odit dolores ipsum adipisci quaerat.",
+            "content": "Placeat commodi ex eum corrupti. Distinctio debitis quasi praesentium id in voluptate non eos. Magni iste suscipit maxime.\n\nInventore unde itaque beatae et sint et ratione est. Et deleniti laudantium ea sed impedit minima occaecati. Repudiandae odio asperiores totam iusto.\n\nSaepe saepe molestiae non ea et et veniam. Provident saepe tempora earum velit dolor debitis. Exercitationem labore aliquam ullam. Ut accusantium atque architecto fugit est voluptatem sapiente.\n\nAssumenda voluptatem vel blanditiis id temporibus. Velit magni eos omnis et ut quo quia iure. Qui assumenda magnam sit fugit enim dolores. Ea optio sit libero ut.\n\nFacilis voluptas debitis et sit consequatur consequuntur. Est in mollitia quam. Non qui quo et id rerum labore molestiae.",
+            "view_count": 9830,
+            "is_published": 0,
+            "created_at": "2020-02-13 18:21:00",
+            "updated_at": "2020-03-06 08:37:29"
+        },
+        {
+            "id": 8,
+            "category_id": 2,
+            "user_id": 20,
+            "title": "Voluptatem repellendus vel voluptatem maxime laborum est incidunt nisi et ea.",
+            "content": "Itaque non dolor voluptatem. Unde est ipsa quia labore. Earum fugit magnam ratione eveniet et.\n\nRepudiandae aut aliquam facilis nam ipsam. In iure beatae et dolorem aliquid ducimus aut. Aut ipsum corrupti similique aut optio.\n\nQuasi ducimus quod voluptate est assumenda enim quisquam. Aut magnam est quibusdam dignissimos non quod. Aspernatur assumenda eaque earum.\n\nIpsa cum eveniet est debitis id dicta sed. Adipisci qui eos quo repudiandae. Est quia id ut aut ipsum est facilis mollitia.\n\nVoluptas cupiditate earum cumque quis dolorem. Quibusdam ducimus enim nam aliquid libero. Veritatis animi nihil sunt voluptatem. Hic ipsum optio consequuntur et nesciunt.",
+            "view_count": 7314,
+            "is_published": 0,
+            "created_at": "2020-01-21 03:23:58",
+            "updated_at": "2020-04-05 19:48:33"
+        },
+        {
+            "id": 9,
+            "category_id": 14,
+            "user_id": 4,
+            "title": "Ipsa consectetur omnis ut earum consequuntur soluta veniam nesciunt itaque.",
+            "content": "Aperiam iusto nihil expedita provident. Quidem quia et fugit est dolorem. Aspernatur excepturi soluta ducimus enim ut aliquid consequuntur voluptatem. Molestiae veniam iusto necessitatibus voluptatum in ipsam. Iste saepe reiciendis temporibus illum non officia et.\n\nQuaerat itaque reprehenderit numquam. Natus amet voluptatem vel ut harum occaecati nulla. Harum harum et nobis recusandae ullam ex aut. Ipsum iste laudantium dolores quibusdam dolore maxime minus dignissimos.\n\nAutem sed dolorem consequuntur eaque incidunt quis rerum eos. Est dolorem dolor nemo et praesentium. Vel aut quis ratione consequuntur maiores iure. Ratione consequatur quaerat iure et.\n\nRerum libero animi itaque quasi ex et dignissimos. Quod iure aut doloremque perferendis ab. Ipsa aliquam et ut officia odio rerum reiciendis at. Natus placeat voluptates nihil sed voluptatem nisi.\n\nAut optio sint et. Qui nobis saepe tempore quis tenetur. Consequatur eum rem est.",
+            "view_count": 6963,
+            "is_published": 1,
+            "created_at": "2020-02-20 23:28:06",
+            "updated_at": "2020-03-27 20:03:05"
+        },
+        {
+            "id": 10,
+            "category_id": 4,
+            "user_id": 17,
+            "title": "Quibusdam nihil repellendus aut ex aut blanditiis tenetur qui sunt.",
+            "content": "Rerum explicabo provident maiores suscipit aperiam. Magni sint minus voluptas libero. Nemo id quo sequi incidunt quae.\n\nEt dolor eos dolores maiores aliquid. Enim molestiae dicta earum et. Provident qui minus autem id iste.\n\nDeleniti sed voluptatem quibusdam in temporibus ut pariatur omnis. Fuga accusantium eligendi quia facilis nihil eius. Provident corporis quo modi modi aut officiis vitae. Assumenda blanditiis possimus excepturi mollitia fugiat.\n\nIpsum voluptas sed neque praesentium. A quo minima animi praesentium. Deleniti qui deserunt consequatur saepe. Ea impedit illo eius.\n\nEx aspernatur repudiandae sint est voluptatem. Non assumenda fugiat quia in ad voluptas. Molestias sunt voluptatum temporibus animi. Non unde fuga aut labore labore.",
+            "view_count": 6680,
+            "is_published": 0,
+            "created_at": "2020-01-29 04:31:16",
+            "updated_at": "2020-03-09 13:10:24"
+        },
+        {
+            "id": 11,
+            "category_id": 6,
+            "user_id": 15,
+            "title": "Illo et praesentium necessitatibus nihil autem possimus vel quia et non.",
+            "content": "Non qui facilis veritatis. Aut debitis quam ab alias sint. Quia sit iste libero. Aut saepe voluptatem nam voluptatem ex.\n\nSunt at ut neque est quos. Sapiente quis sapiente pariatur ea tempore. Sunt iure voluptatem unde quasi et.\n\nIusto nobis magnam possimus deserunt consectetur. Mollitia quam vel at ipsam fuga voluptatibus. Nam voluptatem alias blanditiis est et nisi sit. In maxime doloremque qui ratione fuga.\n\nNulla odit distinctio quaerat voluptatum in fugit. Aut id maxime temporibus voluptas. Ex tempora et placeat nihil delectus sunt error sed. Vel beatae dolorem modi ut.\n\nMolestiae voluptatibus cumque laborum ut accusamus. Perferendis aliquid optio facere quis. Quia repellat enim aut aut. Unde ut quas similique est enim.",
+            "view_count": 3956,
+            "is_published": 0,
+            "created_at": "2020-03-14 10:27:48",
+            "updated_at": "2020-03-16 07:57:07"
+        },
+        {
+            "id": 12,
+            "category_id": 14,
+            "user_id": 7,
+            "title": "Ut et rem voluptas velit voluptate ipsam sunt minus labore velit et eos.",
+            "content": "Non nostrum laboriosam non molestiae iusto tempore. Voluptatibus omnis eum ut ut quos autem. Quis fuga dolore assumenda non non quisquam. Inventore voluptatem qui mollitia officiis sit excepturi maxime.\n\nIusto et ut ut cupiditate ea. Suscipit dolor ab voluptatem. Nesciunt et ad pariatur suscipit.\n\nVoluptatem repellendus dolores optio excepturi deleniti voluptatibus maiores. Omnis aut libero ut et explicabo. Et quia rerum animi voluptatibus. Accusantium est perspiciatis voluptas nihil.\n\nDignissimos aut architecto velit aperiam. Et eum rerum eaque laudantium. Ipsa omnis aspernatur ratione nulla et non.\n\nEos et fugit autem quod recusandae iste voluptatem. Distinctio sapiente autem suscipit doloremque eos. Nostrum id eveniet harum laboriosam eos voluptatem velit. Non nisi earum aut ut.",
+            "view_count": 7851,
+            "is_published": 0,
+            "created_at": "2020-01-08 08:52:02",
+            "updated_at": "2020-03-26 08:45:14"
+        },
+        {
+            "id": 13,
+            "category_id": 20,
+            "user_id": 12,
+            "title": "Sunt voluptatem ab nesciunt dolor enim qui quia necessitatibus sed quos alias.",
+            "content": "Voluptate nostrum omnis possimus quibusdam. Voluptatem veritatis illo natus sed cupiditate sed mollitia. Voluptatem non cupiditate esse quam amet eius. Voluptas vitae non repellat quis id occaecati. Praesentium ad quia qui labore exercitationem accusamus.\n\nEst sit optio laborum possimus quisquam beatae. Illo eum eligendi consequatur voluptate nisi dolor molestiae deleniti. Nesciunt quisquam aut ut dolores mollitia eaque aut. Vero unde praesentium doloribus porro maxime.\n\nEum modi facere odit qui et dolore hic. Ea distinctio velit quas qui voluptatem. Velit laudantium voluptas ea mollitia eos modi voluptatum. Velit repellat fugit architecto rerum sint veritatis et.\n\nQuidem libero et iusto necessitatibus. Fugiat facere consequatur quisquam nostrum quod fuga. Molestias omnis rerum eos dolores veniam id. Deserunt omnis dolore aspernatur nihil maiores rem enim.\n\nUt minus id similique. Quia iusto quia beatae est sint aperiam libero. Labore temporibus sunt facilis odit facilis a ut. Cupiditate nisi aut debitis corrupti quidem non optio.",
+            "view_count": 8320,
+            "is_published": 1,
+            "created_at": "2020-01-13 07:55:25",
+            "updated_at": "2020-03-26 13:22:16"
+        },
+        {
+            "id": 14,
+            "category_id": 15,
+            "user_id": 8,
+            "title": "Iure doloremque suscipit illum earum et impedit quo nobis inventore rerum voluptas animi.",
+            "content": "Sed deserunt libero magnam ut ut optio. Accusantium esse commodi sunt ea minus. Laboriosam in eos natus odit et illum. Magnam ut alias quam.\n\nAt sequi fugiat ut dolore reiciendis ut. Nam qui fugiat adipisci saepe ipsam. Iusto sit non eius facilis quo soluta provident. Nihil eos enim et perspiciatis.\n\nVitae animi quam labore fugiat dolorum magnam et. Illo eligendi illo beatae in itaque voluptatem occaecati. Quidem voluptate commodi magni.\n\nNecessitatibus assumenda accusamus ea. Maxime ducimus ab distinctio vitae aliquam. Harum quo saepe enim voluptas corporis in eius.\n\nQuam optio voluptas adipisci perspiciatis consequatur modi nihil. Labore hic officiis totam veritatis. Facilis aliquid qui magni vel suscipit quo.",
+            "view_count": 5648,
+            "is_published": 1,
+            "created_at": "2020-02-11 09:26:29",
+            "updated_at": "2020-03-25 16:49:07"
+        },
+        {
+            "id": 15,
+            "category_id": 12,
+            "user_id": 11,
+            "title": "Earum cum voluptatem ipsam quia omnis numquam.",
+            "content": "Dolorem quis aspernatur et cumque laudantium quasi. Blanditiis tempora ullam non enim vel non. Nam magnam reprehenderit nobis voluptatem ut.\n\nUt expedita eos est beatae unde qui odit. Ut veritatis dignissimos quia facere et nam. Voluptatem facere sed voluptatem aut sit.\n\nCommodi nemo deserunt in occaecati qui inventore. Repellat porro enim reiciendis. Dolores laboriosam sed consectetur nulla.\n\nAperiam saepe rem ex quis. Quia rerum iure nisi ea non architecto. Debitis id magni quo iure non vel quidem. Ullam eaque eos eos eum eum.\n\nMaxime quo qui labore expedita. Soluta ut rerum eveniet at et rerum praesentium. Veritatis eligendi dolores culpa error voluptatem impedit harum.",
+            "view_count": 2981,
+            "is_published": 0,
+            "created_at": "2020-01-17 14:25:53",
+            "updated_at": "2020-04-03 13:39:49"
+        },
+        {
+            "id": 16,
+            "category_id": 16,
+            "user_id": 2,
+            "title": "Rerum expedita dicta quas nesciunt dolores excepturi earum et facilis similique praesentium accusamus occaecati.",
+            "content": "Voluptatum iusto sit enim magnam architecto. Voluptas architecto neque magnam. Facere dolorem sed ut et. Vero quasi velit ut hic voluptates.\n\nPlaceat suscipit rerum eius neque quis in. Est quo sed vitae iure est. Illo quod doloribus animi qui aperiam quod facere accusantium. Sint quidem animi delectus consequatur.\n\nSint laboriosam quia dolor et hic mollitia. Harum libero aliquam placeat expedita minima. Suscipit dolorem eos ducimus voluptates tenetur error aperiam. Quo quia ut corporis esse.\n\nNecessitatibus reprehenderit occaecati laborum sed. Dolor sed unde dolores quia dolore quia debitis. Unde recusandae facere et adipisci. Dolore qui non iste laboriosam non deleniti corrupti esse.\n\nAut perferendis id nihil et et adipisci. Alias sit quam ea sed quo. Earum quam distinctio distinctio repellat.",
+            "view_count": 7620,
+            "is_published": 1,
+            "created_at": "2020-02-15 19:17:13",
+            "updated_at": "2020-04-04 20:19:06"
+        },
+        {
+            "id": 17,
+            "category_id": 19,
+            "user_id": 7,
+            "title": "Pariatur qui sint sint facilis eos atque est accusamus sapiente laboriosam quae culpa.",
+            "content": "Est vitae qui dolor facere nostrum vitae iure consequatur. Nihil atque excepturi quis sit beatae consequatur officia nulla. Repudiandae quia temporibus et et quis.\n\nUt tempora occaecati accusantium sequi est sit in. Numquam in rerum minus veritatis consequuntur quaerat vel. Qui voluptatibus necessitatibus magni esse odio et.\n\nVoluptatibus corrupti sint aut aliquid. Itaque ea quae eius rem nulla quis earum illo. Officia expedita iste accusamus aspernatur.\n\nFugiat et possimus temporibus rerum reprehenderit. Et omnis quia velit. Et ut necessitatibus eaque odit voluptates est laudantium. Adipisci et rerum accusantium accusantium eum quas quo.\n\nQuis ut est et numquam. Repellendus ullam qui aut et omnis a itaque. Distinctio iusto et dolor ut. Asperiores aliquid eum officia.",
+            "view_count": 6576,
+            "is_published": 1,
+            "created_at": "2020-03-09 16:32:16",
+            "updated_at": "2020-03-17 13:54:45"
+        },
+        {
+            "id": 18,
+            "category_id": 5,
+            "user_id": 12,
+            "title": "Nesciunt saepe fugiat quia molestias sed id.",
+            "content": "Laboriosam autem repudiandae veniam sint ut quod amet. Ratione et natus consequatur assumenda enim. A reiciendis officiis perspiciatis molestiae aut quis.\n\nEnim perspiciatis sequi aut accusamus. Est est molestiae possimus dolorem voluptatem reprehenderit qui aut. Illum maiores maiores at saepe.\n\nAut quo accusantium rerum incidunt recusandae. Sed accusantium alias excepturi suscipit sit delectus amet eligendi. Quia quae eos blanditiis molestiae voluptatem. Voluptas quasi sequi animi officia.\n\nSed ut voluptatem ipsam in voluptatum inventore amet. Excepturi quis debitis voluptates hic sed iusto. Et officiis occaecati eius in cupiditate iste. Et sunt rerum officia nihil temporibus tenetur consequuntur quis.\n\nVeritatis consequuntur quasi saepe ipsam et ipsam. Consequuntur suscipit sequi in enim perferendis voluptates dolore. Cupiditate quod et repudiandae ullam facilis ut.",
+            "view_count": 3733,
+            "is_published": 1,
+            "created_at": "2020-03-13 12:24:13",
+            "updated_at": "2020-03-07 00:32:20"
+        },
+        {
+            "id": 19,
+            "category_id": 17,
+            "user_id": 12,
+            "title": "Quia sit voluptatibus odio quia natus voluptatem aut quam eius sit corporis veritatis dolore.",
+            "content": "Totam possimus temporibus dignissimos commodi tempore. Ipsum harum non adipisci voluptas aspernatur saepe maiores.\n\nNihil et eius laboriosam ea repudiandae. Expedita voluptatum repudiandae in. Nesciunt cupiditate beatae expedita aliquam error. Omnis consequatur labore ea laudantium.\n\nMagnam ea cumque et illo voluptas ut voluptatem reiciendis. In sit nobis eos deserunt facere. Impedit ex nobis placeat magni voluptates. Provident amet laudantium neque quos sit ut aspernatur.\n\nNon tenetur laboriosam itaque fuga quibusdam voluptas. Et molestiae ut et sunt minima consequatur sit. Et quas porro magnam blanditiis.\n\nIllo et dolores repudiandae. Placeat dolor deleniti dolores similique consectetur nesciunt dignissimos. Consequuntur velit blanditiis qui ex.",
+            "view_count": 4732,
+            "is_published": 0,
+            "created_at": "2020-02-21 21:57:29",
+            "updated_at": "2020-04-05 02:58:59"
+        },
+        {
+            "id": 20,
+            "category_id": 4,
+            "user_id": 9,
+            "title": "Nihil itaque laborum dolores voluptatem corrupti quo hic harum ex dolore enim.",
+            "content": "Maxime sapiente vel et officia nesciunt veniam eos eveniet. Asperiores et minima rem quis cum excepturi voluptates dolorem. Quam voluptatem totam debitis saepe placeat deserunt ut. Provident et expedita suscipit mollitia.\n\nRem eos magnam recusandae possimus. Rerum quis laudantium nihil dolor ducimus et. Dolores omnis tempore vitae molestiae.\n\nRatione perferendis amet et ab. Praesentium recusandae aspernatur autem exercitationem facere sint. Consequatur nostrum odit assumenda amet.\n\nCorrupti quaerat labore tenetur expedita iste deserunt. Odit vitae labore asperiores est qui laborum.\n\nEsse dolor reprehenderit autem et quia ut. Aliquam commodi placeat ex sunt similique possimus. Consequatur neque reprehenderit sapiente et. Cumque nostrum ipsa dicta dolores non sed quia. Mollitia iusto beatae aut tempora libero repellat eius.",
+            "view_count": 5718,
+            "is_published": 1,
+            "created_at": "2020-03-11 10:27:31",
+            "updated_at": "2020-03-10 20:10:17"
+        },
+        {
+            "id": 21,
+            "category_id": 13,
+            "user_id": 3,
+            "title": "Autem pariatur consequatur vel non amet aut.",
+            "content": "Eos magni natus est et. Voluptatem autem esse autem sit quasi aut. Dolor labore dolor repellendus pariatur. In labore eum et aut numquam illum consequatur.\n\nEst ratione perferendis optio illum voluptates molestias quae quasi. Dolorem aliquid architecto a deserunt harum. Iste vel esse odio in expedita possimus deleniti. Facere ab quo reprehenderit.\n\nQui laboriosam aliquid id dolorem dolor accusantium. Voluptas enim perferendis laudantium animi ut deleniti iure. Aut est laborum non optio minima amet.\n\nSaepe minima aut quisquam. Veritatis natus atque occaecati quo. Nihil fugiat sunt voluptas et tempora.\n\nQuibusdam asperiores sed beatae. Cum et voluptas voluptas recusandae. Nobis sit molestiae accusamus fugit nostrum repellendus ut. Et at facere quidem reiciendis ut amet.",
+            "view_count": 1724,
+            "is_published": 1,
+            "created_at": "2020-02-11 21:03:22",
+            "updated_at": "2020-03-24 11:01:57"
+        },
+        {
+            "id": 22,
+            "category_id": 14,
+            "user_id": 8,
+            "title": "Ut minus asperiores consequatur et maiores error quae molestiae rem laborum.",
+            "content": "Atque culpa qui quas recusandae eum aut quia. Magnam sit voluptas ducimus ut nihil vero. Et rem deserunt explicabo sit laudantium.\n\nNesciunt voluptates non repellendus cumque incidunt. Et consequatur atque suscipit odit.\n\nVeritatis eveniet quia autem dolores quo aspernatur. Facere quos autem totam necessitatibus. Ratione dolores officia sunt nulla. Quo reprehenderit ea et vitae dolorem.\n\nVero perferendis quas saepe. Consequatur quis quo magni similique natus. Sit dolores ipsam cum qui et. Quam perspiciatis saepe est.\n\nHarum beatae excepturi officiis. Expedita odit sed animi vero inventore voluptas. Reprehenderit fugit consequatur temporibus. Velit iste eveniet repellendus deserunt deleniti dicta.",
+            "view_count": 9953,
+            "is_published": 0,
+            "created_at": "2020-01-17 01:44:01",
+            "updated_at": "2020-03-28 02:15:28"
+        },
+        {
+            "id": 23,
+            "category_id": 19,
+            "user_id": 18,
+            "title": "Dignissimos delectus similique veniam ad modi iure beatae non ab aliquid.",
+            "content": "Ipsa laboriosam in labore nisi autem. Earum assumenda in quis inventore esse eaque non. Similique consequuntur earum placeat in quia. Accusamus est est neque numquam.\n\nMinima vero aliquam rem consequatur sed exercitationem. Quasi non eum voluptatem dignissimos dolorum. Autem hic sunt consequatur dicta officia aspernatur asperiores. Delectus enim sit id nihil nemo veritatis beatae illum.\n\nDoloribus commodi commodi debitis nobis unde. Iusto ullam ut minus nostrum aut. Minima reprehenderit reiciendis molestiae qui voluptatibus sit voluptates.\n\nFugiat quos dolor perferendis rerum rerum atque. Itaque nesciunt eveniet inventore cupiditate labore assumenda. Quas nemo et quasi doloremque quasi. Accusantium corporis veritatis eligendi omnis iure.\n\nIn ad facere error nihil nesciunt praesentium. Ut quaerat et possimus libero dolores. Enim qui qui eos ab expedita aut modi similique.",
+            "view_count": 7233,
+            "is_published": 0,
+            "created_at": "2020-01-24 00:16:32",
+            "updated_at": "2020-03-15 00:59:56"
+        },
+        {
+            "id": 24,
+            "category_id": 7,
+            "user_id": 5,
+            "title": "Impedit doloremque est commodi iure est et cupiditate eveniet ex pariatur at iure.",
+            "content": "Ab rerum harum beatae est. Voluptas repellat quis minima nemo saepe recusandae. Facere non provident nam sit omnis provident ab.\n\nRepellendus dolores nihil eum ducimus. Nobis veritatis dignissimos quo fugiat aut saepe. Vel occaecati doloribus ut aut mollitia dicta voluptates.\n\nIusto quidem molestias et perspiciatis sed nemo. Enim fuga qui sunt qui quaerat impedit. Et itaque ea dolores amet aut numquam maxime.\n\nNon repellendus iure sed soluta velit nesciunt voluptatem. Id dolore doloribus in in.\n\nDoloremque rerum voluptatum exercitationem in. Et blanditiis itaque qui similique ea. Ea asperiores in voluptatem earum veritatis voluptatem quasi. Nisi consequatur impedit aut natus ullam laudantium.",
+            "view_count": 9565,
+            "is_published": 0,
+            "created_at": "2020-02-16 07:49:20",
+            "updated_at": "2020-04-05 17:28:39"
+        },
+        {
+            "id": 25,
+            "category_id": 19,
+            "user_id": 17,
+            "title": "Amet aspernatur voluptate sed est officia fuga perferendis non soluta hic similique et.",
+            "content": "Ut minima eum quisquam alias est. Consequatur necessitatibus esse facere dolores ipsum quos. Delectus minus tempore aperiam eveniet. Ipsa minus perferendis reprehenderit corporis et.\n\nAd fugiat quo qui. Laborum dignissimos in expedita voluptates optio. Est magnam ea consequatur amet praesentium laudantium. Libero quaerat eligendi voluptatem rerum.\n\nSequi numquam et nulla voluptas. Excepturi id laudantium eaque assumenda quo dolores. Expedita minus et adipisci molestiae quod aut iure. Dolorum nesciunt velit accusamus et. Repellendus ut ipsam fuga hic magnam eius.\n\nFuga reprehenderit reprehenderit ad non id magnam. Minus maxime non quas magnam fugit. Architecto consequatur libero nisi voluptas.\n\nEt vitae numquam dignissimos. Aut beatae provident et debitis perspiciatis. Recusandae numquam voluptatem delectus aperiam.",
+            "view_count": 4233,
+            "is_published": 1,
+            "created_at": "2020-02-07 22:20:06",
+            "updated_at": "2020-03-24 18:11:57"
+        },
+        {
+            "id": 26,
+            "category_id": 9,
+            "user_id": 4,
+            "title": "Est sapiente quia vel sapiente dignissimos possimus aspernatur.",
+            "content": "Minus eos omnis fugiat laboriosam dolor. Aperiam quia excepturi et deserunt qui. Est laboriosam odit harum nihil accusantium doloremque non.\n\nSit quae nam quisquam laborum rerum molestiae. Officia odit asperiores voluptate. Et excepturi magni soluta animi ea doloremque incidunt.\n\nOfficiis corrupti dignissimos saepe. Ex quisquam omnis voluptatem distinctio. Molestiae quisquam in ut et voluptatum. Asperiores recusandae corrupti itaque quidem. Aut nam dolore ut sit quisquam.\n\nHarum maiores ab facere quaerat. Atque quis provident sed ipsum sint eligendi. Id cumque voluptatibus et ipsa.\n\nQui quaerat sapiente recusandae et veritatis. Repellat ut perspiciatis animi est. Ab et corrupti ad beatae.",
+            "view_count": 3766,
+            "is_published": 1,
+            "created_at": "2020-02-15 21:52:35",
+            "updated_at": "2020-03-18 08:13:00"
+        },
+        {
+            "id": 27,
+            "category_id": 18,
+            "user_id": 19,
+            "title": "Eos sunt possimus magnam aut vitae voluptatibus dolorum et aut est.",
+            "content": "Adipisci optio odit laboriosam consequatur quaerat rerum rerum dolor. Aliquid eum mollitia voluptas. Eaque ad quibusdam perspiciatis hic qui ut. Iste voluptatem id repellat atque at perferendis.\n\nTempore numquam consequatur ducimus ex aperiam et officiis nulla. Laboriosam et impedit assumenda adipisci ex. Consectetur voluptatem alias ea.\n\nEveniet ut odit corrupti possimus voluptas aut fugiat. Est ad accusamus pariatur quam. Consequuntur minus odio voluptatem consectetur voluptatem dolor perspiciatis dicta.\n\nIusto ut qui quia error aut eligendi maiores. Soluta quisquam ipsam velit dolore. Aut odio unde fugiat sit odio. Ea ipsum ut cum soluta asperiores.\n\nOccaecati odio molestiae totam. Tempora in occaecati quos et. Consequatur voluptate voluptas qui quibusdam ut ipsum. Illum consequatur autem dolor dolores sit nulla.",
+            "view_count": 7319,
+            "is_published": 1,
+            "created_at": "2020-02-27 03:07:55",
+            "updated_at": "2020-03-11 08:17:31"
+        },
+        {
+            "id": 28,
+            "category_id": 19,
+            "user_id": 3,
+            "title": "Ratione beatae est voluptatem eligendi rerum et ratione ea adipisci.",
+            "content": "Blanditiis soluta ut iste nobis vitae. Et asperiores dolores magnam rerum omnis autem. Odio dolor quia quis. Culpa eveniet sit minima inventore ducimus voluptas.\n\nLabore aut assumenda molestiae. Aut sed voluptas dolore qui corporis aspernatur ut. Et qui quia modi expedita omnis.\n\nExercitationem iure hic laudantium asperiores voluptates aspernatur. Ducimus consectetur qui sint ipsam est. Consectetur aut ab itaque repellendus aspernatur maiores temporibus.\n\nVoluptates non dicta laudantium vero. Quasi consequuntur aut cum iure cumque.\n\nAsperiores recusandae exercitationem aliquid. Totam culpa commodi minima. Non omnis non a molestiae nisi architecto.",
+            "view_count": 3621,
+            "is_published": 0,
+            "created_at": "2020-02-02 19:44:03",
+            "updated_at": "2020-04-05 21:53:35"
+        },
+        {
+            "id": 29,
+            "category_id": 17,
+            "user_id": 18,
+            "title": "Saepe aut et ab nesciunt voluptas nobis vel et distinctio quo.",
+            "content": "Iure aut corporis voluptas laboriosam illo sapiente. Magnam ea ut placeat eaque ad esse.\n\nNulla quaerat libero aliquam consequatur assumenda nulla. Deserunt qui ipsam ad facilis voluptas. Ducimus exercitationem perspiciatis iure minima tempora perspiciatis.\n\nQuod quod soluta error consequuntur minus voluptas vel repellendus. Quia nesciunt ut suscipit exercitationem. Fuga dolores sapiente ea.\n\nMagnam neque soluta consequatur. Doloremque commodi reiciendis saepe qui quibusdam. Expedita harum sed et explicabo iusto voluptatibus. Ullam dolore ut unde sit laudantium eum consequuntur nam. Eaque ullam optio delectus explicabo nihil et.\n\nIpsum ratione exercitationem provident molestiae explicabo. Repudiandae non doloremque voluptas quas. Ducimus et dicta aliquam voluptatem. Nemo ut et facilis tenetur iste sit maxime temporibus.",
+            "view_count": 2148,
+            "is_published": 0,
+            "created_at": "2020-02-09 09:49:05",
+            "updated_at": "2020-03-13 02:17:12"
+        },
+        {
+            "id": 30,
+            "category_id": 19,
+            "user_id": 14,
+            "title": "Quia at quidem officiis corporis possimus animi qui qui qui et et nam consectetur.",
+            "content": "Quis non quas ullam provident expedita qui consectetur eaque. Eos neque repellat iste ipsa. Voluptatum quasi dolorem molestiae voluptas esse. Velit nobis recusandae sapiente omnis accusamus.\n\nAspernatur architecto aut a quis amet et. Id aut necessitatibus autem beatae. Voluptas veritatis rerum quis architecto optio.\n\nQuam non eos porro et. Deleniti eum autem animi.\n\nVeniam aut aspernatur quibusdam quia voluptate qui tempore ex. Asperiores ut et dolor error et. Aut est facilis voluptas ea. Ut reiciendis quis animi saepe nemo alias voluptatum.\n\nQui dolorum occaecati ut saepe. Et voluptas a veniam voluptas qui expedita. Sapiente totam ratione corrupti dolorem nam. Et quis ea consequatur.",
+            "view_count": 7725,
+            "is_published": 1,
+            "created_at": "2020-01-28 23:35:15",
+            "updated_at": "2020-03-14 14:53:27"
+        },
+        {
+            "id": 31,
+            "category_id": 12,
+            "user_id": 16,
+            "title": "Nihil magnam tempore occaecati provident qui ex nulla omnis aut sequi fugit facere excepturi.",
+            "content": "Aliquid inventore numquam aut. Sed natus facere maxime ipsum reprehenderit itaque explicabo dolorem. Mollitia harum ut officia odit ipsam suscipit.\n\nAut ab soluta iure sequi explicabo vel. Expedita repellat quia modi qui. Blanditiis excepturi odit officia est pariatur nostrum aut. Eum mollitia delectus cum non. Aut eos sapiente sed et minima quia.\n\nEt repellat non commodi consequuntur minima. Soluta vel repellat ipsa doloremque illo quasi. Dolor quia ipsa enim temporibus nesciunt aperiam quasi dicta. Cumque odit fuga nam voluptates.\n\nQuod ut velit repellat maiores. Ut inventore eos enim nam ut harum. Consectetur odio numquam recusandae eos est id.\n\nNon blanditiis totam ad fugiat alias laborum. Dolor enim est dolorum dolores ab rerum.",
+            "view_count": 4566,
+            "is_published": 0,
+            "created_at": "2020-03-30 06:07:23",
+            "updated_at": "2020-04-02 14:38:47"
+        },
+        {
+            "id": 32,
+            "category_id": 2,
+            "user_id": 11,
+            "title": "Et dolor assumenda qui id consequatur ut quibusdam rerum ipsa.",
+            "content": "Quia ipsam quae sit nobis facere modi ut qui. Est sit velit inventore et qui placeat. Vel dolores sit est vel repellat saepe. Aut nostrum sed molestiae magnam.\n\nFacere sunt eum dolorem et. Rerum provident et voluptatem asperiores nam. Voluptatem commodi nulla et explicabo molestiae assumenda veritatis. Aut sapiente dolorem dolorem libero id fugit.\n\nVeniam soluta velit inventore provident sit rem asperiores. Enim reiciendis et eos exercitationem eveniet sint officia. Debitis vel repellendus fugiat ipsam qui. Quisquam ullam et sint molestias nam sed sint commodi.\n\nDolores et suscipit qui culpa alias consequatur. Libero totam autem porro sunt. Non eum quasi et aut distinctio sapiente.\n\nTotam fugiat alias ab consequatur ex assumenda. Libero similique sunt harum molestiae sint beatae. Possimus nesciunt id dolor amet. Ratione corporis placeat illum sunt sed rerum doloremque.",
+            "view_count": 8433,
+            "is_published": 1,
+            "created_at": "2020-02-01 03:24:39",
+            "updated_at": "2020-03-20 22:14:38"
+        },
+        {
+            "id": 33,
+            "category_id": 1,
+            "user_id": 19,
+            "title": "Quasi quaerat velit ipsa atque expedita autem odit commodi cupiditate dolores molestiae dolorem culpa dolores.",
+            "content": "Voluptatibus quibusdam id ut tempore corporis sed quis. Assumenda sapiente culpa quisquam aut. Qui animi alias sunt hic.\n\nCum vel sint vel. Cumque atque id expedita ut nulla molestias. Commodi ut odit quasi consectetur.\n\nNihil occaecati aut aut odit vel. Quidem deleniti omnis accusantium quis. Et voluptas consequatur quidem odio sed. Sit nemo eum voluptas animi sint qui.\n\nFugiat facere incidunt iure vitae voluptas voluptas ut. Quis laudantium eligendi unde non fugit ab nostrum. Quam molestias eveniet velit ad hic. Praesentium doloremque ut officiis sequi nisi voluptates.\n\nEt sapiente fuga dicta cupiditate expedita eaque nobis. Sapiente id delectus saepe sunt hic aut. Nisi unde ut quo rerum doloremque iste.",
+            "view_count": 6031,
+            "is_published": 1,
+            "created_at": "2020-02-28 19:50:53",
+            "updated_at": "2020-03-30 07:02:33"
+        },
+        {
+            "id": 34,
+            "category_id": 3,
+            "user_id": 5,
+            "title": "Dignissimos quam maiores iusto laudantium qui vel eum vitae dolorem aut velit.",
+            "content": "Sint et voluptates harum rem ratione ut. Atque consectetur nihil est ratione inventore consectetur.\n\nEnim voluptatem et doloribus recusandae quasi eius eum. Vero esse aut cum sunt sit expedita. Impedit aut earum sint quia sequi sed quidem.\n\nMolestiae eius eligendi quod deserunt. Error est aperiam qui dignissimos modi temporibus. Laborum qui qui eum in. Laborum corrupti velit occaecati nisi sint. Et quia facilis modi laborum consequatur.\n\nExercitationem cum sit voluptates ut deleniti. Sit totam in vitae non.\n\nEaque hic et fugiat ducimus. Ab dolorum aut earum vitae qui fuga perferendis. Aliquid voluptate eos earum esse rerum est. Necessitatibus voluptatem aspernatur soluta fuga deleniti necessitatibus.",
+            "view_count": 1584,
+            "is_published": 0,
+            "created_at": "2020-02-08 11:21:49",
+            "updated_at": "2020-04-01 09:44:47"
+        },
+        {
+            "id": 35,
+            "category_id": 11,
+            "user_id": 1,
+            "title": "Tempora magnam ut iste nihil id ut facere tenetur animi dolorem.",
+            "content": "Consequatur nam sed quibusdam provident. Nisi culpa quam voluptatem. Quia illum odit voluptatem. Nihil vel provident quia ea.\n\nIncidunt pariatur rerum quod dicta. Fugiat hic et ratione. Veniam et sequi labore et fugit error maxime.\n\nUt nihil dolorem sed omnis magnam repellendus officia ut. Quaerat officia illo maiores reiciendis. Saepe eum voluptatem quis et unde nesciunt. Quae rem quia nihil placeat. Officia magni quia velit pariatur nostrum temporibus quasi voluptate.\n\nId corporis est maiores illum. In et sed sapiente voluptatum sint sit eligendi unde. Voluptate quia suscipit ratione pariatur. Qui atque atque excepturi accusantium odit autem.\n\nConsequatur odio omnis sapiente accusamus quia. Suscipit distinctio tempora hic qui iusto consequatur et quod. Nulla ratione nisi sit odit. Beatae voluptate quam et necessitatibus.",
+            "view_count": 3363,
+            "is_published": 1,
+            "created_at": "2020-02-13 00:39:00",
+            "updated_at": "2020-04-04 07:57:29"
+        },
+        {
+            "id": 36,
+            "category_id": 2,
+            "user_id": 12,
+            "title": "Suscipit est architecto beatae accusamus labore et unde iste.",
+            "content": "Quia fugiat illo maxime omnis est voluptatem magni. Distinctio autem repellat neque voluptatem quia adipisci eius.\n\nUt atque in sed dolor eaque et ipsam. Repellendus placeat ut facilis itaque. Eaque tempore dolores ratione aut animi possimus. In nobis eos ut voluptatibus.\n\nVoluptates molestiae ut quia ut vero et et unde. Perferendis dolor non voluptatibus dolorum quia qui molestias maxime. Et eos ratione mollitia rerum accusantium repudiandae. Saepe adipisci quo quasi ex aut. Recusandae quisquam voluptatem consequuntur dolores voluptatem cupiditate amet eligendi.\n\nMagnam ex quam explicabo. Quisquam velit minima aspernatur ducimus id.\n\nExcepturi veniam est saepe officiis et. Ut velit modi numquam nisi quibusdam eum. Reprehenderit adipisci consequuntur odit labore porro et.",
+            "view_count": 2311,
+            "is_published": 0,
+            "created_at": "2020-01-20 12:40:44",
+            "updated_at": "2020-03-16 13:31:38"
+        },
+        {
+            "id": 37,
+            "category_id": 11,
+            "user_id": 10,
+            "title": "Architecto unde dolore itaque rerum autem quis dolores architecto minus eligendi.",
+            "content": "Omnis labore magnam aperiam molestiae laborum. Eos quidem rem quidem dignissimos. Maxime laudantium consequatur sed velit quia nisi aut est. Ut iste omnis nihil sunt.\n\nFugit aliquid omnis necessitatibus et voluptate molestias. Pariatur quaerat nemo quod culpa alias consequatur in consequuntur. Sapiente culpa at dolore.\n\nQui maxime aperiam illum laudantium rerum natus quasi non. Aliquam inventore odit pariatur nihil. Porro incidunt quibusdam illum dolorum. Aut autem vel accusamus suscipit quo reprehenderit minima.\n\nAut alias quos magni neque iure. Molestiae tenetur qui quas incidunt. Ad dignissimos et excepturi fugiat omnis. Reprehenderit sit consequatur doloremque veritatis. Ipsa voluptatem magnam sed quia.\n\nCorrupti ut vitae praesentium eum. Eius ipsum fugit blanditiis magnam eius incidunt enim ea.",
+            "view_count": 5632,
+            "is_published": 1,
+            "created_at": "2020-02-26 02:49:55",
+            "updated_at": "2020-04-01 15:58:57"
+        },
+        {
+            "id": 38,
+            "category_id": 4,
+            "user_id": 8,
+            "title": "Deserunt ipsum suscipit eveniet eius error consequuntur dolore.",
+            "content": "Illum dolorem minus ullam consequatur eveniet. Consequatur delectus voluptatibus velit sed placeat ea rem architecto. Eum suscipit iure excepturi. Dolor temporibus eveniet in veniam.\n\nDolor tenetur sunt dolorem illo inventore. Quidem illum in vero qui. Veritatis autem sit saepe corrupti.\n\nEt voluptatibus corrupti necessitatibus reprehenderit. Aspernatur veniam minima repellendus sapiente facilis iusto. Ut maiores est aliquam hic similique. Aut optio quia quia.\n\nEt possimus eligendi iste porro voluptatibus vero. Numquam minus cum blanditiis eum voluptas totam. Alias totam a rerum sed.\n\nVelit odit temporibus eos alias quo a quasi. Rerum et quia aliquid. Iure sit molestias rerum debitis minima aut doloribus voluptatem. Doloribus neque suscipit fuga esse consequatur repellendus itaque.",
+            "view_count": 4483,
+            "is_published": 0,
+            "created_at": "2020-01-15 16:40:35",
+            "updated_at": "2020-03-19 20:00:44"
+        },
+        {
+            "id": 39,
+            "category_id": 17,
+            "user_id": 17,
+            "title": "Esse molestias quos numquam perspiciatis accusantium dolores quia.",
+            "content": "Est est laborum soluta assumenda. Et vel et voluptas accusantium. Quam rerum ea voluptate temporibus nam commodi sint sed. Sit quibusdam illum est dolorem tempore ut qui distinctio.\n\nExplicabo est et ut reprehenderit. Quos laboriosam vero eius quos qui. Omnis voluptatem id quibusdam voluptatem minima est est amet. Qui voluptatem dolorem in.\n\nDolor est libero quia qui non quidem tempore. Voluptatem culpa consequatur similique ut. Dolor est et laboriosam.\n\nEt sapiente dolorem omnis omnis corrupti. Blanditiis nihil laborum provident velit et sit. Beatae laboriosam et molestias rerum.\n\nEveniet modi maxime repellendus aliquam. Molestias consequatur qui iste ipsa quae. Odio quas enim temporibus est temporibus sunt optio ut. Nihil et praesentium autem ut consequatur sed dolorum. At corporis optio corporis doloremque magnam.",
+            "view_count": 2901,
+            "is_published": 0,
+            "created_at": "2020-03-05 02:08:11",
+            "updated_at": "2020-03-13 22:50:23"
+        },
+        {
+            "id": 40,
+            "category_id": 17,
+            "user_id": 5,
+            "title": "Sunt repudiandae omnis ut doloribus voluptas eligendi ut in.",
+            "content": "Est ea ad sunt illo sequi. Ipsum est sapiente dicta ut laudantium.\n\nQuas illo facere distinctio id. Ducimus atque consequatur numquam aut adipisci et ut. Praesentium illum sed ab in. Temporibus non sit sit.\n\nDebitis dicta reprehenderit quis quibusdam harum est reprehenderit. Aliquam repudiandae fuga ut. Quidem eum id illo non repudiandae veniam alias ut. Ad reprehenderit in ut alias voluptatem debitis facilis.\n\nIn blanditiis dolores similique et harum. Voluptatem est quas dicta aut cupiditate amet est tempore. Sequi saepe est facilis at voluptas.\n\nImpedit delectus voluptatum adipisci voluptas temporibus facere eum. Quia minima eligendi delectus et id dolores a. Cupiditate veniam et sed molestias necessitatibus. Inventore tempore deleniti necessitatibus deleniti.",
+            "view_count": 2802,
+            "is_published": 0,
+            "created_at": "2020-03-29 07:40:37",
+            "updated_at": "2020-03-20 19:21:59"
+        },
+        {
+            "id": 41,
+            "category_id": 18,
+            "user_id": 13,
+            "title": "Ipsum rem quia fuga neque enim debitis esse at quaerat quaerat quos molestiae.",
+            "content": "Sequi placeat voluptatem fugiat sed. Ipsa cupiditate id facere est. Ratione dolorem suscipit ullam iusto quisquam voluptatem est et. Deserunt aut molestiae quibusdam nostrum impedit libero.\n\nUnde cupiditate recusandae deleniti odit consequatur repellat sed. Voluptatum assumenda perferendis dolor nihil quia dignissimos.\n\nVeniam nemo alias eaque ut cum quasi. Quibusdam ullam vitae temporibus commodi et eveniet. Et praesentium voluptas commodi repudiandae sit dolorum. Facilis ut aut et inventore voluptate voluptatem voluptates.\n\nEveniet ipsum aut quibusdam in ipsam. Sunt accusantium sunt temporibus perspiciatis hic ut adipisci. Est facilis ducimus laboriosam natus provident. Ad non excepturi commodi qui odit consequatur. Nemo repellendus ea exercitationem vitae aut quis et.\n\nImpedit neque modi dicta minus. Quos velit voluptatibus laborum sapiente. Eaque ut unde a. Aut ut adipisci est rerum.",
+            "view_count": 5703,
+            "is_published": 0,
+            "created_at": "2020-03-26 23:44:40",
+            "updated_at": "2020-03-11 16:43:32"
+        },
+        {
+            "id": 42,
+            "category_id": 4,
+            "user_id": 3,
+            "title": "Consequuntur velit praesentium sed et id minima aut in qui quo.",
+            "content": "Vitae unde vel nemo itaque incidunt voluptatem. Esse rerum velit maiores inventore illum praesentium fugit. Molestiae tempora porro veritatis aliquid nihil sint beatae. Voluptate sed quas id dolores.\n\nQuidem repellendus tempora numquam suscipit. Est et non excepturi iusto sed nisi expedita. Consequuntur rerum itaque illum quis consequatur doloribus. Blanditiis enim ut commodi est. Nobis id voluptatum aut.\n\nIure magni aut velit ullam occaecati. Ut dolorum ut voluptatem vitae vero. Quod commodi aliquam sit sed est sint. Pariatur provident qui fugiat non cupiditate repudiandae pariatur.\n\nAliquam eum corporis et odit iure. Ipsa qui quos modi labore non nesciunt.\n\nQuibusdam qui deserunt repellat sint ut sequi autem. Laborum aspernatur provident voluptate.",
+            "view_count": 7189,
+            "is_published": 0,
+            "created_at": "2020-02-04 18:37:04",
+            "updated_at": "2020-03-27 22:55:44"
+        },
+        {
+            "id": 43,
+            "category_id": 18,
+            "user_id": 10,
+            "title": "Earum sint praesentium vero qui occaecati rem molestiae itaque et enim doloremque iste.",
+            "content": "Qui consequatur provident maxime sint aut dolores voluptas molestias. Recusandae ad neque ratione accusantium. Impedit aut magni minima.\n\nIllum quos et in rerum et optio. Non numquam unde magni voluptatem et sit temporibus. Dolore dolores sint sit quo fuga. Est consequatur inventore commodi quae quo magnam.\n\nMagnam suscipit ab est omnis ut sed. Dolore non doloremque tempora sed iste maxime.\n\nItaque sint aliquid maiores omnis aut et delectus. Cupiditate velit harum autem tempora praesentium earum enim. Sint a adipisci repudiandae laudantium quam praesentium dignissimos. Ut itaque ut odit aliquid voluptatibus voluptatem.\n\nUt eos laboriosam velit necessitatibus. Fugit totam saepe sunt necessitatibus consequatur omnis et. Deleniti totam facilis mollitia consectetur debitis dolorum et rerum.",
+            "view_count": 8246,
+            "is_published": 1,
+            "created_at": "2020-02-26 07:16:07",
+            "updated_at": "2020-03-15 04:21:01"
+        },
+        {
+            "id": 44,
+            "category_id": 1,
+            "user_id": 13,
+            "title": "Saepe illo asperiores cumque minus non veniam voluptatum fugit quae sunt.",
+            "content": "Vel pariatur aut repellat officia est. Tenetur aut reprehenderit iste eveniet unde quaerat. Ad temporibus quas aut corporis occaecati consequatur. Quisquam voluptas et qui architecto. Eveniet consequatur hic et ut quasi quae quidem impedit.\n\nEt nihil eveniet quia possimus labore. Deleniti fugit molestiae sequi dignissimos animi. Laboriosam praesentium fugiat cupiditate.\n\nId et repellat non porro ut aut. Et aliquam et eveniet non. Eligendi officiis asperiores vero ad modi sed est.\n\nReiciendis neque iure exercitationem. Et animi et possimus in porro atque iusto. Illum aliquid incidunt iste nemo quia at molestiae.\n\nVelit nisi eos doloribus voluptatem ut. Aut maxime accusantium maxime alias eum non. Ut quod voluptatem dolorem molestiae est minus quo. Molestiae vitae in labore atque totam totam quos. Delectus modi molestiae nemo quia repudiandae facere voluptate.",
+            "view_count": 9549,
+            "is_published": 1,
+            "created_at": "2020-01-13 16:36:14",
+            "updated_at": "2020-03-30 13:07:39"
+        },
+        {
+            "id": 45,
+            "category_id": 14,
+            "user_id": 13,
+            "title": "Quia accusantium consectetur odit voluptate minima rerum non error qui qui veniam qui.",
+            "content": "Animi at est eius. Nostrum sit omnis quis qui. Distinctio iusto suscipit quam soluta. Ut excepturi sunt commodi eveniet.\n\nRerum est voluptas nobis quod nobis impedit. Sint et rerum a ut optio occaecati. Officiis a repellendus distinctio. Quis nihil omnis enim unde quia ducimus ut non.\n\nSapiente iure itaque quae recusandae omnis. Expedita voluptate sed in amet hic libero. Sed aliquam sit mollitia debitis.\n\nOfficia accusantium exercitationem omnis sunt eveniet eum porro. Et enim voluptate doloribus minus voluptas. Sit at non numquam dolore rerum.\n\nSuscipit architecto illo sed sit repellendus qui rem. Deleniti minima est non laudantium rem.",
+            "view_count": 7157,
+            "is_published": 0,
+            "created_at": "2020-03-10 23:35:08",
+            "updated_at": "2020-03-07 12:22:19"
+        },
+        {
+            "id": 46,
+            "category_id": 14,
+            "user_id": 1,
+            "title": "Ad aliquid quasi quibusdam facilis omnis sint consequuntur et.",
+            "content": "Quo dolor aut et iure maiores. Consectetur eius in qui fugiat. Dolor libero hic culpa. Ut quia enim aliquam possimus minima vel.\n\nSint et pariatur ut quaerat. Nobis tempore dolor accusantium eos cumque. Et ab quis repellendus velit sed.\n\nAliquid suscipit corrupti aliquam et aspernatur sapiente voluptatem. Mollitia commodi voluptatem voluptatem maxime asperiores nesciunt beatae enim. Nam mollitia iusto qui nostrum.\n\nConsequatur voluptas minus tempora. Dolore dolorem repudiandae omnis sint suscipit. Quo aut a ullam consequatur quibusdam. Qui qui dignissimos necessitatibus consectetur et fuga velit. Modi omnis aliquam harum distinctio officia.\n\nAliquid dolorem totam voluptate reiciendis. Nihil pariatur eligendi excepturi eos sit quos sit adipisci. Ut repudiandae dicta voluptatem ad dolorem ut. Laborum voluptatum accusantium sit sint nihil est molestiae.",
+            "view_count": 7461,
+            "is_published": 0,
+            "created_at": "2020-01-11 00:41:36",
+            "updated_at": "2020-03-30 08:20:52"
+        },
+        {
+            "id": 47,
+            "category_id": 15,
+            "user_id": 15,
+            "title": "Suscipit officiis voluptatem est illum neque et est.",
+            "content": "A enim dolor quibusdam laboriosam. Et veritatis aut aut nesciunt rerum et. Vitae commodi ab voluptates illum.\n\nCupiditate sed eaque esse non dolorem. Voluptatem et ipsa et accusamus. Enim quia dolore beatae voluptatem.\n\nAutem in ab corporis perspiciatis quia excepturi atque. Error illum vel dolores. Labore consequatur minima aut numquam vitae delectus commodi. Reiciendis et mollitia vel consequuntur id nesciunt.\n\nSint qui quaerat odit. Dignissimos dignissimos minus velit et accusantium aliquid minima. Fugiat sed ut odio ratione aliquid consequatur. Sunt voluptate deleniti aut consectetur qui voluptatem.\n\nDolorem veritatis totam dignissimos in. Sit sed aut dolorum libero eligendi at ut. Est et iusto rerum non. Aliquam maiores veniam ex dolore.",
+            "view_count": 3326,
+            "is_published": 1,
+            "created_at": "2020-03-01 05:03:52",
+            "updated_at": "2020-03-11 18:12:10"
+        },
+        {
+            "id": 48,
+            "category_id": 3,
+            "user_id": 12,
+            "title": "Ipsam cumque consectetur corrupti minus rem architecto eum.",
+            "content": "Est error similique repellat. Dicta magnam voluptatum soluta aut sunt sit perspiciatis.\n\nSit hic laboriosam consequatur non. Enim voluptas quo quia modi tempore ut. Qui nisi sed suscipit nisi consequatur autem.\n\nConsequuntur corrupti aliquid nesciunt laborum. Veritatis veritatis quam et blanditiis. Quia vel eum soluta vero porro tempore est. In sit ut numquam itaque. Magnam fuga quis magnam quo ad.\n\nQui quo sequi repellendus nobis consequatur reiciendis similique. Ut et animi laboriosam repellat et similique.\n\nQuibusdam non excepturi delectus voluptatem repellat facere. Consequatur illo ducimus consequatur. Sint magni non ut rerum ipsam nesciunt beatae.",
+            "view_count": 7210,
+            "is_published": 1,
+            "created_at": "2020-01-30 10:33:46",
+            "updated_at": "2020-03-27 17:11:00"
+        },
+        {
+            "id": 49,
+            "category_id": 18,
+            "user_id": 2,
+            "title": "Id qui eaque aspernatur expedita quo provident est labore commodi.",
+            "content": "Ab reiciendis hic dolorem hic quidem est. Adipisci blanditiis neque et quidem aut minima. Impedit nostrum velit aliquid quis maxime eos facere.\n\nLaborum aliquam saepe voluptatibus impedit ut necessitatibus itaque omnis. Repellendus ut explicabo sed perspiciatis earum aliquid et natus. Rem qui perspiciatis est accusamus.\n\nAsperiores quis explicabo dicta rerum. Ratione officiis vel consequatur et et velit. Sed fugiat non perspiciatis minus dolorem perspiciatis. Non aliquam dolor dolorem voluptatem.\n\nIusto est repudiandae nobis voluptas voluptas. Aut neque itaque rerum molestias. Deleniti ut dicta quia officiis mollitia cumque minima. Sequi mollitia eos ratione quod incidunt consequuntur libero.\n\nEt delectus aliquam occaecati eaque. Quidem quas quasi possimus et. Eius aperiam et doloremque quasi itaque et.",
+            "view_count": 8516,
+            "is_published": 1,
+            "created_at": "2020-02-09 20:39:01",
+            "updated_at": "2020-03-10 09:43:50"
+        },
+        {
+            "id": 50,
+            "category_id": 16,
+            "user_id": 2,
+            "title": "Velit voluptas corrupti eum dolorem aliquid cumque qui nemo pariatur.",
+            "content": "Perferendis culpa corrupti optio illum voluptatem. Modi ducimus omnis impedit aperiam inventore voluptas totam. At magni ipsam optio nulla delectus ullam labore. Accusamus culpa nobis aut.\n\nIpsum aut aperiam et ut. Eum sunt id porro nihil. Quisquam aut laudantium ipsa ad cupiditate blanditiis. Vel rerum aspernatur iure nihil.\n\nOdio autem dicta assumenda est sunt sint consequatur. Quos unde minus nulla minima dolorem laboriosam iure. Possimus hic nihil natus vero quam vel. Iusto iusto voluptatibus ea aut.\n\nSuscipit dignissimos dolorum quia aspernatur quo qui. Maiores aliquid quam et sed et est. Mollitia velit at est voluptates distinctio itaque tempora.\n\nNihil quasi sed ut nostrum vel vel ipsam. Eos eaque aspernatur quaerat praesentium voluptatibus. Consequatur aliquid ut nisi eos nemo et.",
+            "view_count": 8681,
+            "is_published": 1,
+            "created_at": "2020-03-26 16:52:54",
+            "updated_at": "2020-03-19 10:49:16"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/posts`
+
+
+<!-- END_de624ebdfc033d5ef2ff088a06eb8266 -->
+
+<!-- START_5b4d6e8241a1bdbde6bf1c9014d05f53 -->
+## Store a newly created Post in storage.
+
+POST /posts
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/admin/posts" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/admin/posts`
+
+
+<!-- END_5b4d6e8241a1bdbde6bf1c9014d05f53 -->
+
+<!-- START_c8e52f884160eeed57d61c47ea2d61f1 -->
+## Display the specified Post.
+
+GET|HEAD /posts/{id}
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/posts/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Post retrieved successfully",
+    "data": {
+        "id": 1,
+        "category_id": 20,
+        "user_id": 7,
+        "title": "Aperiam impedit tenetur quo veritatis dolorem quae ratione occaecati est quasi vel non sint.",
+        "content": "Ipsam sed neque dicta itaque. Ut impedit est quos quas omnis. Nisi aut est et omnis praesentium. Necessitatibus accusamus animi ea veritatis laboriosam qui.\n\nRepudiandae vitae aut qui dolorum asperiores expedita voluptatem. Aut doloremque mollitia doloribus consequuntur enim officiis. Iure est fuga sit est. Quidem eos veritatis placeat voluptatem.\n\nQuo consequatur et sunt perferendis voluptatem ea officia. Quibusdam perspiciatis atque architecto earum dolorem est. Et eos dignissimos molestiae commodi nihil architecto ea.\n\nQuia veniam nihil explicabo eius. Harum laboriosam cumque repellat enim nesciunt omnis delectus quia. Nisi sed impedit velit quo illo modi.\n\nAlias at voluptates in et qui molestiae. Delectus animi dolor enim voluptatem sint sequi et enim. Illo quas beatae rerum autem vel. Quaerat possimus quia voluptas ea officiis.",
+        "view_count": 1827,
+        "is_published": 1,
+        "created_at": "2020-03-10 10:50:13",
+        "updated_at": "2020-04-06 02:07:14"
+    }
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/posts/{post}`
+
+
+<!-- END_c8e52f884160eeed57d61c47ea2d61f1 -->
+
+<!-- START_404bd2a19aec72d39f22c9c5cc7e5f63 -->
+## Update the specified Post in storage.
+
+PUT/PATCH /posts/{id}
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/admin/posts/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/admin/posts/{post}`
+
+`PATCH api/v1/admin/posts/{post}`
+
+
+<!-- END_404bd2a19aec72d39f22c9c5cc7e5f63 -->
+
+<!-- START_0738080bb87bce236fce39abb2500777 -->
+## Remove the specified Post from storage.
+
+DELETE /posts/{id}
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/v1/admin/posts/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/admin/posts/{post}`
+
+
+<!-- END_0738080bb87bce236fce39abb2500777 -->
+
+<!-- START_fe5531af46ff26bddde964cac96f6dcf -->
+## Display a listing of the Category.
+
+GET|HEAD /categories
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/categories" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/categories"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Categories retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "provident",
+            "hot": 9944,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?38670",
+            "created_at": "2020-01-09 14:26:09",
+            "updated_at": "2020-03-30 04:22:32"
+        },
+        {
+            "id": 2,
+            "name": "ut",
+            "hot": 6553,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?22286",
+            "created_at": "2020-01-09 07:37:45",
+            "updated_at": "2020-03-20 18:02:58"
+        },
+        {
+            "id": 3,
+            "name": "omnis",
+            "hot": 8638,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?17403",
+            "created_at": "2020-03-26 00:15:34",
+            "updated_at": "2020-03-21 16:38:46"
+        },
+        {
+            "id": 4,
+            "name": "veniam",
+            "hot": 6950,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?78987",
+            "created_at": "2020-03-04 07:52:39",
+            "updated_at": "2020-03-07 00:47:52"
+        },
+        {
+            "id": 5,
+            "name": "magnam",
+            "hot": 9923,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?67381",
+            "created_at": "2020-03-28 22:00:32",
+            "updated_at": "2020-03-15 11:35:19"
+        },
+        {
+            "id": 6,
+            "name": "soluta",
+            "hot": 1839,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?23316",
+            "created_at": "2020-01-21 07:45:17",
+            "updated_at": "2020-03-20 15:31:27"
+        },
+        {
+            "id": 7,
+            "name": "ea",
+            "hot": 4858,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?59270",
+            "created_at": "2020-01-09 18:28:21",
+            "updated_at": "2020-04-06 00:56:51"
+        },
+        {
+            "id": 8,
+            "name": "fuga",
+            "hot": 5851,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?39009",
+            "created_at": "2020-04-04 02:18:35",
+            "updated_at": "2020-03-19 19:35:22"
+        },
+        {
+            "id": 9,
+            "name": "consequatur",
+            "hot": 5821,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?79359",
+            "created_at": "2020-04-04 16:06:48",
+            "updated_at": "2020-03-08 11:40:30"
+        },
+        {
+            "id": 10,
+            "name": "voluptas",
+            "hot": 1622,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?59076",
+            "created_at": "2020-03-31 16:12:16",
+            "updated_at": "2020-03-18 22:02:57"
+        },
+        {
+            "id": 11,
+            "name": "modi",
+            "hot": 8339,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?50354",
+            "created_at": "2020-01-10 00:57:56",
+            "updated_at": "2020-03-21 22:21:36"
+        },
+        {
+            "id": 12,
+            "name": "magni",
+            "hot": 7023,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?52071",
+            "created_at": "2020-02-18 08:05:37",
+            "updated_at": "2020-03-11 13:06:00"
+        },
+        {
+            "id": 13,
+            "name": "illum",
+            "hot": 3555,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?60234",
+            "created_at": "2020-01-17 17:27:18",
+            "updated_at": "2020-03-23 08:55:24"
+        },
+        {
+            "id": 14,
+            "name": "beatae",
+            "hot": 9526,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?68305",
+            "created_at": "2020-02-02 23:05:27",
+            "updated_at": "2020-03-23 13:35:33"
+        },
+        {
+            "id": 15,
+            "name": "ullam",
+            "hot": 1009,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?92625",
+            "created_at": "2020-02-03 20:41:31",
+            "updated_at": "2020-03-20 10:27:24"
+        },
+        {
+            "id": 16,
+            "name": "et",
+            "hot": 5808,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?25134",
+            "created_at": "2020-03-13 04:37:22",
+            "updated_at": "2020-03-23 22:04:13"
+        },
+        {
+            "id": 17,
+            "name": "itaque",
+            "hot": 2325,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?33157",
+            "created_at": "2020-03-26 12:50:51",
+            "updated_at": "2020-03-29 13:08:52"
+        },
+        {
+            "id": 18,
+            "name": "perspiciatis",
+            "hot": 1072,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?65681",
+            "created_at": "2020-01-29 10:16:21",
+            "updated_at": "2020-03-25 21:32:07"
+        },
+        {
+            "id": 19,
+            "name": "perferendis",
+            "hot": 6864,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?16439",
+            "created_at": "2020-02-01 03:11:32",
+            "updated_at": "2020-03-14 20:21:24"
+        },
+        {
+            "id": 20,
+            "name": "sint",
+            "hot": 3577,
+            "image": "https:\/\/lorempixel.com\/640\/480\/?86668",
+            "created_at": "2020-03-24 08:30:42",
+            "updated_at": "2020-03-25 17:52:33"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/categories`
+
+
+<!-- END_fe5531af46ff26bddde964cac96f6dcf -->
+
+<!-- START_30535ceeeaeaf82d7c418c31191ebe64 -->
+## Store a newly created Category in storage.
+
+POST /categories
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/admin/categories" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/categories"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/admin/categories`
+
+
+<!-- END_30535ceeeaeaf82d7c418c31191ebe64 -->
+
+<!-- START_f1842792f7799e4817ddd6879094e868 -->
+## Display the specified Category.
+
+GET|HEAD /categories/{id}
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/categories/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/categories/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Category retrieved successfully",
+    "data": {
+        "id": 1,
+        "name": "provident",
+        "hot": 9944,
+        "image": "https:\/\/lorempixel.com\/640\/480\/?38670",
+        "created_at": "2020-01-09 14:26:09",
+        "updated_at": "2020-03-30 04:22:32"
+    }
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/categories/{category}`
+
+
+<!-- END_f1842792f7799e4817ddd6879094e868 -->
+
+<!-- START_deb0820e25e6d6efe9fbce320cf6a109 -->
+## Update the specified Category in storage.
+
+PUT/PATCH /categories/{id}
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/admin/categories/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/categories/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/admin/categories/{category}`
+
+`PATCH api/v1/admin/categories/{category}`
+
+
+<!-- END_deb0820e25e6d6efe9fbce320cf6a109 -->
+
+<!-- START_c7baf4318a38060db6e3a4e68e3011d3 -->
+## Remove the specified Category from storage.
+
+DELETE /categories/{id}
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/v1/admin/categories/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/categories/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/admin/categories/{category}`
+
+
+<!-- END_c7baf4318a38060db6e3a4e68e3011d3 -->
+
+<!-- START_51f610d273d4e4ad54131bf65f34efdb -->
+## Display a listing of the Tag.
+
+GET|HEAD /tags
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/tags" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/tags"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Tags retrieved successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "Science",
+            "hot": 1192,
+            "created_at": "2020-04-06 03:38:06",
+            "updated_at": "2020-04-06 03:38:06"
+        },
+        {
+            "id": 2,
+            "name": "Sport",
+            "hot": 1532,
+            "created_at": "2020-04-06 03:38:06",
+            "updated_at": "2020-04-06 03:38:06"
+        },
+        {
+            "id": 3,
+            "name": "Politics",
+            "hot": 2800,
+            "created_at": "2020-04-06 03:38:06",
+            "updated_at": "2020-04-06 03:38:06"
+        },
+        {
+            "id": 4,
+            "name": "Entartainment",
+            "hot": 8170,
+            "created_at": "2020-04-06 03:38:06",
+            "updated_at": "2020-04-06 03:38:06"
+        },
+        {
+            "id": 5,
+            "name": "Economy",
+            "hot": 2738,
+            "created_at": "2020-04-06 03:38:06",
+            "updated_at": "2020-04-06 03:38:06"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/tags`
+
+
+<!-- END_51f610d273d4e4ad54131bf65f34efdb -->
+
+<!-- START_f508b30606c01e9602f42f5dc977966f -->
+## Store a newly created Tag in storage.
+
+POST /tags
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/admin/tags" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/tags"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/admin/tags`
+
+
+<!-- END_f508b30606c01e9602f42f5dc977966f -->
+
+<!-- START_445834b194ef83f3af6676096180a0af -->
+## Display the specified Tag.
+
+GET|HEAD /tags/{id}
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/tags/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/tags/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Tag retrieved successfully",
+    "data": {
+        "id": 1,
+        "name": "Science",
+        "hot": 1192,
+        "created_at": "2020-04-06 03:38:06",
+        "updated_at": "2020-04-06 03:38:06"
+    }
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/tags/{tag}`
+
+
+<!-- END_445834b194ef83f3af6676096180a0af -->
+
+<!-- START_0fc0049c695b1a762897033c2506293b -->
+## Update the specified Tag in storage.
+
+PUT/PATCH /tags/{id}
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/admin/tags/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/tags/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/admin/tags/{tag}`
+
+`PATCH api/v1/admin/tags/{tag}`
+
+
+<!-- END_0fc0049c695b1a762897033c2506293b -->
+
+<!-- START_7dc047fe2f37095408a6f648315550ac -->
+## Remove the specified Tag from storage.
+
+DELETE /tags/{id}
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/v1/admin/tags/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/tags/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/admin/tags/{tag}`
+
+
+<!-- END_7dc047fe2f37095408a6f648315550ac -->
+
+<!-- START_18beb7a25d0e0957a1ec3d79a4cf25a3 -->
+## Display a listing of the resource.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/posts/1/comments" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1/comments"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "data retrived successfully",
+    "data": [
+        {
+            "id": 37,
+            "content": "Ducimus suscipit impedit exercitationem et qui consequatur est. Excepturi dolorem autem perferendis ullam veritatis officiis. Aliquam et quia harum sed et. Sint dolore quia sit sequi esse.",
+            "created_at": "2020-03-09T11:54:46.000000Z",
+            "updated_at": "2020-03-27T09:28:29.000000Z",
+            "user": {
+                "id": 16,
+                "name": "xhic"
+            }
+        },
+        {
+            "id": 110,
+            "content": "Modi non saepe totam laudantium aspernatur. Consectetur sint consectetur quia ad non unde sint. Vel ea et non est.",
+            "created_at": "2020-02-22T16:52:08.000000Z",
+            "updated_at": "2020-04-01T22:42:51.000000Z",
+            "user": {
+                "id": 11,
+                "name": "officiis60"
+            }
+        },
+        {
+            "id": 132,
+            "content": "Repudiandae sunt quo qui. Velit sunt ad repellat enim dolore aut. Beatae dolor in sit sit omnis quos at.",
+            "created_at": "2020-03-13T05:13:22.000000Z",
+            "updated_at": "2020-04-02T22:46:44.000000Z",
+            "user": {
+                "id": 2,
+                "name": "rtenetur"
+            }
+        },
+        {
+            "id": 139,
+            "content": "Vitae quibusdam quia ut. Qui ipsum iusto ab pariatur impedit magnam fuga qui.",
+            "created_at": "2020-03-07T12:06:27.000000Z",
+            "updated_at": "2020-03-27T09:44:16.000000Z",
+            "user": {
+                "id": 8,
+                "name": "fet"
+            }
+        },
+        {
+            "id": 204,
+            "content": "Ut veniam consequatur delectus. Maiores commodi et ea architecto nihil iusto odit. Autem mollitia doloremque odio et vero. Necessitatibus totam porro neque et a dolor quidem dolorem.",
+            "created_at": "2020-01-15T10:42:40.000000Z",
+            "updated_at": "2020-03-17T07:36:33.000000Z",
+            "user": {
+                "id": 5,
+                "name": "quo_aut"
+            }
+        },
+        {
+            "id": 213,
+            "content": "Voluptatem repellendus dolorem maiores aliquid doloribus delectus. Dolor autem illo atque ratione ullam accusantium. Error atque quae fugit vel voluptas eum aspernatur.",
+            "created_at": "2020-01-28T09:43:06.000000Z",
+            "updated_at": "2020-03-31T11:10:38.000000Z",
+            "user": {
+                "id": 15,
+                "name": "wfugit"
+            }
+        },
+        {
+            "id": 277,
+            "content": "Voluptate necessitatibus porro ut. Quia rem molestiae rerum eius. Veritatis velit rerum et quibusdam esse voluptatem et. Consequatur doloremque consequuntur culpa eligendi mollitia.",
+            "created_at": "2020-03-15T08:56:16.000000Z",
+            "updated_at": "2020-03-22T16:15:21.000000Z",
+            "user": {
+                "id": 9,
+                "name": "distinctio.est"
+            }
+        },
+        {
+            "id": 338,
+            "content": "Distinctio in eveniet dolores nobis. Voluptas consectetur quisquam cumque est qui.",
+            "created_at": "2020-03-14T22:17:54.000000Z",
+            "updated_at": "2020-03-05T23:22:59.000000Z",
+            "user": {
+                "id": 4,
+                "name": "illum_odit"
+            }
+        },
+        {
+            "id": 426,
+            "content": "Voluptas laboriosam accusantium autem illum quisquam. Recusandae facere distinctio occaecati cum qui. Consequatur impedit doloremque doloribus vitae quia et occaecati doloribus.",
+            "created_at": "2020-01-09T10:27:03.000000Z",
+            "updated_at": "2020-03-29T22:24:07.000000Z",
+            "user": {
+                "id": 6,
+                "name": "todit"
+            }
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/posts/{post}/comments`
+
+
+<!-- END_18beb7a25d0e0957a1ec3d79a4cf25a3 -->
+
+<!-- START_7af66fb42e571aaae4f51044205de90e -->
+## Store a newly created resource in storage.
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/admin/posts/1/comments" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1/comments"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/admin/posts/{post}/comments`
+
+
+<!-- END_7af66fb42e571aaae4f51044205de90e -->
+
+<!-- START_df1db1d46acacae671b17a457efd7e7f -->
+## Display the specified resource.
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/posts/1/comments/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1/comments/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET api/v1/admin/posts/{post}/comments/{comment}`
+
+
+<!-- END_df1db1d46acacae671b17a457efd7e7f -->
+
+<!-- START_2d700df26cc08e4c3b38016734c89245 -->
+## Update the specified resource in storage.
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/admin/posts/1/comments/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1/comments/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/admin/posts/{post}/comments/{comment}`
+
+`PATCH api/v1/admin/posts/{post}/comments/{comment}`
+
+
+<!-- END_2d700df26cc08e4c3b38016734c89245 -->
+
+<!-- START_5659edfe26e84ddbaf9509d7c2e0b07b -->
+## Remove the specified resource from storage.
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/v1/admin/posts/1/comments/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/posts/1/comments/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/admin/posts/{post}/comments/{comment}`
+
+
+<!-- END_5659edfe26e84ddbaf9509d7c2e0b07b -->
+
+<!-- START_76300d5345bd64fb536d206dedd74060 -->
+## Display a listing of the Product.
+
+GET|HEAD /products
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/products" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/products"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "message": "Products retrieved successfully",
+    "data": [
+        {
+            "id": 3,
+            "name": "atque",
+            "description": "Magnam qui reprehenderit amet et suscipit voluptatem. Consectetur velit rerum vel sint. Quibusdam vero est qui at quia accusamus.\n\nDignissimos rerum et illo a est laborum. Quas assumenda explicabo facere alias labore perspiciatis in. Quasi itaque consequatur possimus et eius sit quo. Aperiam vel reprehenderit quis at laboriosam laudantium praesentium ut. Eius tempora placeat rerum optio aut ea omnis voluptates.",
+            "content": "Iste sed soluta a deleniti. Cupiditate magnam voluptates ab minima. Sunt fugiat perspiciatis perferendis deserunt debitis beatae.\n\nNesciunt nostrum aliquam consectetur rem pariatur. Et deserunt optio quisquam fugiat exercitationem dolorum et. Voluptatum sed a ea optio et ut.\n\nPorro aliquid eum voluptas rerum quia molestiae quaerat qui. Aut aspernatur aut cupiditate dolores ut voluptatem fuga perferendis. Dolorem impedit voluptas molestiae voluptas consequuntur iusto. Molestiae aliquid sequi mollitia in quia qui doloremque.\n\nLaudantium omnis eius fugit ipsum sint. Illum in voluptates nobis et. Ullam iste nostrum quasi pariatur sit.\n\nTemporibus eos esse dolorem assumenda deleniti sapiente nihil. Provident repudiandae temporibus iusto voluptas veritatis dolorem. Inventore deleniti vero accusantium omnis.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?75013",
+            "sku": 2553,
+            "discount": "0.94",
+            "price": "215.55",
+            "created_at": "2020-01-23 02:18:50",
+            "updated_at": "2020-03-13 03:18:46"
+        },
+        {
+            "id": 9,
+            "name": "quibusdam",
+            "description": "Alias doloribus qui sit illo. Nihil modi neque quam sequi quis. Qui in et veritatis doloremque.\n\nEaque libero nulla aperiam aliquid nobis qui nemo. Beatae omnis perspiciatis perferendis assumenda ullam nihil et sunt.",
+            "content": "Qui ullam exercitationem facere quisquam consequatur quae sit. Aut occaecati odit dolores voluptatem quas sed. Exercitationem libero et necessitatibus vel blanditiis.\n\nQuod deleniti ab totam dolores ducimus qui. Debitis incidunt sint aut quis odio natus voluptate. Esse distinctio eum debitis debitis. Quam facere minus dolor optio voluptatum.\n\nEst atque doloremque eligendi. Quas itaque perferendis ipsa est quasi et iure esse. Neque hic aut omnis eum sed quis veritatis. Voluptatum tempora facilis beatae saepe. Porro fugit dolores deleniti.\n\nReprehenderit reprehenderit aperiam libero beatae hic repellendus. Quasi deserunt dolor quas illum. Earum quidem sint minima maiores. Consequatur autem consequatur natus molestiae accusamus aut.\n\nConsequatur aliquid numquam nisi amet molestiae fugit nihil. Similique quisquam ut culpa nam non distinctio labore. Perspiciatis voluptatum rem sed sit impedit quam magni. Natus ab non aliquid.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?48420",
+            "sku": 2689,
+            "discount": "0.89",
+            "price": "618.39",
+            "created_at": "2020-01-22 20:34:24",
+            "updated_at": "2020-03-23 22:50:07"
+        },
+        {
+            "id": 21,
+            "name": "harum",
+            "description": "Doloribus aspernatur neque ullam porro provident ipsam. Cum tenetur omnis dolorum. Nulla rerum ex dignissimos.\n\nAt quae et praesentium vel qui. Amet enim velit voluptatem voluptas et provident. Et ut sed rerum cum ducimus sint. Aliquam ratione ipsam voluptatem quia nihil ipsa.",
+            "content": "Ea assumenda quis est odit. A perspiciatis eligendi eum odio inventore et qui. Est impedit est amet ut.\n\nCupiditate et et aperiam dolorem non magnam rerum. Facere fuga cupiditate voluptas quod. Qui officia non nostrum molestiae est. Occaecati quos nobis iure voluptatibus earum ad.\n\nFugiat qui eos in labore rerum. Iusto eos odit et ratione voluptatem beatae tempora natus. Totam eligendi voluptatibus magni. Deserunt a et in voluptas vitae ut quia.\n\nAmet nemo temporibus beatae. Iste non est temporibus voluptas. Officiis aut ipsam et est consequatur voluptatem. Vero quas eos doloribus in dolor ut.\n\nFacere qui quos inventore laboriosam dignissimos. Autem sit molestias quidem aut molestiae minima. Fuga quam blanditiis voluptatem mollitia facere. Velit quis et dolorem perspiciatis.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?91471",
+            "sku": 6049,
+            "discount": "0.82",
+            "price": "368.25",
+            "created_at": "2020-03-14 15:28:48",
+            "updated_at": "2020-04-04 19:26:18"
+        },
+        {
+            "id": 22,
+            "name": "aut",
+            "description": "Vero quisquam enim sunt et voluptas. Minus maxime esse alias sequi impedit. Dicta atque perspiciatis voluptatibus nisi error maxime voluptas.\n\nNisi maxime qui id fugiat eum et quia. Recusandae voluptatem quia voluptatem aliquid ut. Voluptas et est sint id et sequi accusantium.",
+            "content": "Dolores nesciunt aliquam aspernatur quaerat sapiente quos illum. Est recusandae sunt occaecati nihil aut. Qui fugiat neque harum ducimus cupiditate recusandae tempore vel.\n\nNemo minus dolores nulla adipisci recusandae velit qui. Porro et veritatis voluptas quis ut ut itaque. Voluptatum adipisci eum et ut. Nostrum omnis omnis nulla a. Repellat rem dolorem molestias et repudiandae et.\n\nVoluptatum ducimus consequuntur vel. Atque voluptatibus et dolore. Explicabo fugit eius corrupti odio exercitationem consectetur inventore sit.\n\nVero nam occaecati rerum quam inventore. Sequi ipsum quam facilis. Veritatis commodi eum quis et aut. Quis ut aperiam harum eum adipisci qui blanditiis. At quia esse et reprehenderit quia nulla nam et.\n\nDeserunt neque porro non soluta et. Nulla laboriosam quod et eum doloribus. Molestiae at ducimus aliquid consequuntur quibusdam non.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?38195",
+            "sku": 4511,
+            "discount": "0.88",
+            "price": "701.11",
+            "created_at": "2020-03-11 19:30:29",
+            "updated_at": "2020-04-07 09:51:49"
+        },
+        {
+            "id": 23,
+            "name": "suscipit",
+            "description": "Numquam cumque earum enim sapiente facilis. Dolorum minima voluptates sapiente qui officiis est. Autem est cumque culpa beatae commodi et quisquam laboriosam.\n\nHarum rem perferendis dolor repellat pariatur dolorum iusto. Ut eum quis error asperiores aut. Qui deleniti quo vitae eveniet molestias nihil omnis. Eveniet impedit suscipit inventore et.",
+            "content": "Fuga ut sit totam et nisi qui est. Natus explicabo et quos veniam et tempora sit quibusdam. Cupiditate non at saepe qui qui nostrum.\n\nMagnam non quia molestias qui necessitatibus. Aliquam ipsum vitae reiciendis facere nisi. Molestias autem aliquam accusamus nostrum ut in temporibus.\n\nExpedita repellat dolor officia excepturi quaerat mollitia. Officiis molestiae aliquid ullam placeat. Autem enim et dolorem ducimus deleniti est temporibus. Magni excepturi labore ea ea quis.\n\nAmet numquam qui cumque saepe. Dolorem excepturi est aliquam at. Atque officia aperiam dolores eos. Similique iusto dolorum ad aliquam magni et asperiores.\n\nVoluptatibus non consequatur itaque quam veniam ut quae. Asperiores dolorem id est qui consequatur omnis animi illum. Et velit nulla sed velit sed.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?70265",
+            "sku": 7043,
+            "discount": "0.94",
+            "price": "458.59",
+            "created_at": "2020-03-12 08:52:15",
+            "updated_at": "2020-03-19 10:19:44"
+        },
+        {
+            "id": 24,
+            "name": "ut",
+            "description": "Similique quas dolores aut voluptate. Quasi ipsam dolorem minus quo eum nihil. Voluptatem sed impedit et est iste aut. Totam exercitationem sed quos modi provident quidem tempora molestiae.\n\nQuos distinctio totam maiores eos aliquam accusantium. Autem cupiditate est necessitatibus eum doloribus qui amet possimus.",
+            "content": "Natus itaque sequi quo ea asperiores exercitationem molestias. Harum magnam reprehenderit labore. Consequatur velit nostrum provident numquam nesciunt sed. Voluptate id quaerat quaerat id sapiente doloremque omnis.\n\nIn error aut voluptatibus in omnis. Sed ab illo reprehenderit voluptatum. Consequatur consequatur est harum id. Rerum eos minima eos quia veniam est.\n\nDoloribus nostrum in earum sed. Et quo repellendus animi et magni ab voluptatem sint. Impedit commodi pariatur inventore excepturi quibusdam et.\n\nAmet necessitatibus doloremque unde et quae et. Non a illum aut est unde neque. Qui et quae libero aut veritatis vitae et. Nulla dolorem qui iusto accusantium neque minus sequi non.\n\nCorporis vel est earum id minus in mollitia. Repudiandae aliquid molestiae autem suscipit sunt. Earum dolores deserunt optio.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?83915",
+            "sku": 3066,
+            "discount": "0.83",
+            "price": "497.69",
+            "created_at": "2020-02-06 07:07:20",
+            "updated_at": "2020-03-13 21:02:41"
+        },
+        {
+            "id": 25,
+            "name": "sint",
+            "description": "Harum porro fugiat ut et dolor. Ut error deserunt consectetur reprehenderit sed. Sed doloribus laboriosam doloremque sapiente assumenda nihil rerum.\n\nSint consequatur quod quam ut fugiat fugit doloremque. Ducimus eius eos sunt illum labore iusto facere. Doloribus vel sint ipsum. Ducimus earum ad qui vero ea magnam veniam. Natus voluptatibus distinctio officiis corporis aut quo.",
+            "content": "Repellat repellendus nostrum veritatis voluptas corporis quasi dolores. Optio aliquid eligendi iure optio explicabo quibusdam molestiae dolorem. Repellat aut cumque magnam error vel voluptatibus.\n\nSaepe ullam doloribus dolores rerum commodi aliquid consequatur. Et ut quas dicta sunt est eos vel est. Totam quod nostrum nostrum repellat magni aut.\n\nQuam et molestiae consectetur odio. Vel autem nesciunt omnis culpa fuga alias omnis. Inventore aut qui unde illo.\n\nQui eos ipsam unde ut alias accusantium at. Id inventore reprehenderit harum aut. Commodi corrupti inventore nesciunt consequatur.\n\nMolestias et placeat fuga. Sit quod harum ex distinctio quae omnis nihil. Pariatur vel eaque ad quia.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?63660",
+            "sku": 5478,
+            "discount": "0.89",
+            "price": "821.57",
+            "created_at": "2020-03-26 12:07:01",
+            "updated_at": "2020-03-10 04:50:14"
+        },
+        {
+            "id": 26,
+            "name": "enim",
+            "description": "Voluptatibus deleniti non voluptatibus velit fugit nihil. Illo nostrum sint eos iste aut dolore suscipit et. Sunt natus consequatur nostrum.\n\nAccusamus quia nulla sunt praesentium maxime. Aut est rerum quo illum sed. Voluptates tempora repellat maiores iste rerum et voluptas et.",
+            "content": "Odit ipsa labore aut soluta. Delectus culpa commodi illum.\n\nOmnis est molestiae delectus ad. Distinctio perspiciatis minima fugiat laboriosam neque labore. Est qui velit eum iure.\n\nCorporis unde saepe ut corrupti aut. Qui quis est ipsam assumenda facilis est. Id et nam facere quo dolor aspernatur. Esse laborum optio optio architecto necessitatibus perspiciatis maiores.\n\nEos consequatur deserunt id ut. Fugiat enim maiores exercitationem quia dolorum dolores quasi. Harum non aut impedit quis ea quis. Repellendus corrupti impedit eos.\n\nEum iure mollitia numquam molestias sed non. Non qui blanditiis accusamus illum ex laborum cum. Voluptatibus eligendi facere sint ratione nihil vel voluptas. Nihil sed incidunt dolor sed eligendi pariatur rerum et.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?21403",
+            "sku": 2973,
+            "discount": "0.95",
+            "price": "262.56",
+            "created_at": "2020-02-24 22:45:55",
+            "updated_at": "2020-04-02 08:26:23"
+        },
+        {
+            "id": 27,
+            "name": "est",
+            "description": "Harum sint odio aspernatur ut. Exercitationem tempore adipisci magnam est sequi aut aspernatur. Enim ratione rem maxime modi. Asperiores qui laboriosam eius reprehenderit.\n\nEos et beatae quis quia est. Incidunt ut et veniam ratione tempora aperiam. Quaerat et ut deserunt quis molestiae. Minus illum est omnis et molestiae asperiores.",
+            "content": "Quis eos alias aut ipsum. Facilis veritatis eius alias consectetur at voluptatem aliquid. Deserunt velit explicabo nostrum.\n\nUt corporis a aut possimus qui in aut. Tenetur nesciunt commodi omnis. Sed qui enim dignissimos architecto dolores non impedit. Dolor exercitationem illo et dolorem adipisci.\n\nReprehenderit enim occaecati porro vel perferendis. Non repellendus voluptate sed ad. Dicta sit maiores minima sapiente vitae similique culpa. Quo sed dolores tempora.\n\nEos quae ad vero tenetur nulla minima itaque. Ut et fuga eum suscipit. Magni aperiam odio eum sit impedit quam.\n\nSunt dolores dolor laudantium id eos harum. Veritatis est ut impedit hic. Maiores iste inventore provident ipsam quidem. Reiciendis at architecto minus error numquam alias.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?46313",
+            "sku": 6155,
+            "discount": "0.98",
+            "price": "934.40",
+            "created_at": "2020-03-04 04:55:50",
+            "updated_at": "2020-03-11 19:42:29"
+        },
+        {
+            "id": 28,
+            "name": "rerum",
+            "description": "Dolores eveniet autem et et exercitationem. Eaque vel reiciendis assumenda et ut aut cupiditate explicabo. Consequuntur at voluptatem unde minima enim et tenetur. Nesciunt voluptatem esse vel quam exercitationem debitis. Repellat vitae aut voluptates incidunt dolores.\n\nQuia beatae iusto ad. Amet sit doloremque atque. Aut unde doloribus sit ut fugiat. Repellendus libero ducimus ipsam eum commodi magnam.",
+            "content": "Molestias voluptatibus repudiandae voluptatem officia. Natus rerum perferendis et blanditiis in eum illum. Omnis dolorem aperiam quos. Et laboriosam officiis modi voluptate.\n\nAb alias dolorum vel consequatur minus tempora. Qui iste aspernatur consectetur quaerat. Et distinctio sed sint vitae ex debitis id.\n\nRerum dolores dicta laboriosam dolores. Ex quisquam doloremque et nam non et facere. Corporis rem cum ea earum deserunt. Id voluptatem rerum voluptatem nihil.\n\nFugit autem nihil velit vel. Id ducimus exercitationem soluta accusantium quia. A eaque et harum.\n\nQuidem modi quas itaque ratione dolor dolores minus. Possimus ab et nostrum suscipit fugiat excepturi et. Quaerat animi ut reprehenderit dolor tempore sed quia.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?65499",
+            "sku": 8495,
+            "discount": "0.89",
+            "price": "802.51",
+            "created_at": "2020-02-10 18:55:39",
+            "updated_at": "2020-04-03 05:21:52"
+        },
+        {
+            "id": 29,
+            "name": "eaque",
+            "description": "Non quae cumque asperiores consequatur. Nihil optio ut exercitationem ullam aut. Ratione cupiditate nulla sapiente debitis quas.\n\nSint nobis et neque accusantium. Suscipit pariatur ex voluptates totam vero eum deserunt voluptate.",
+            "content": "Totam et pariatur magni esse. Non ut laboriosam pariatur officiis vitae voluptates. Corrupti minus minus eos earum minus odit harum. Nostrum dolorem soluta reprehenderit ut nesciunt.\n\nSed ipsam quisquam vel sed et. Aut odio nostrum distinctio est. Consectetur minus dolore blanditiis pariatur quae ipsa exercitationem. Consequatur omnis enim quos eum ut.\n\nIure distinctio iusto dolore magni quibusdam. Voluptatem quidem ad quis recusandae ex dignissimos odit aliquam. Delectus rerum beatae odit et. Provident aut non sunt iure asperiores sit est atque.\n\nVoluptas nemo aut accusamus praesentium itaque et aut. Sed illo blanditiis incidunt. Aut eaque numquam recusandae corporis. Aliquid molestiae dolore fugiat corrupti perspiciatis quasi suscipit. Ad architecto laboriosam nihil quo quasi.\n\nFacilis hic eos et odit mollitia est. Ipsam necessitatibus explicabo et fugiat vitae mollitia dicta. Qui veritatis in voluptate nihil excepturi ut. Ea ea et eum ut.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?48034",
+            "sku": 4612,
+            "discount": "0.81",
+            "price": "889.62",
+            "created_at": "2020-03-05 05:50:08",
+            "updated_at": "2020-03-16 00:12:58"
+        },
+        {
+            "id": 30,
+            "name": "cupiditate",
+            "description": "Impedit saepe est expedita harum rerum vel. Et optio aut in dolores deleniti dicta vel. Et provident nostrum natus voluptatibus quis nostrum.\n\nVitae repellendus rerum molestias odio. Architecto ducimus ut porro et blanditiis pariatur sequi. Qui sunt est repudiandae voluptas optio nesciunt modi culpa. Quaerat sint id qui numquam minima doloribus.",
+            "content": "Labore at consectetur dolorem possimus et facere. Animi recusandae occaecati voluptas nostrum omnis tenetur quo unde. Sunt voluptate enim nesciunt.\n\nDolor illum voluptas veniam dolor. Eos eaque sequi eligendi qui. Occaecati ipsam ut officia rem eum. Magni voluptatum modi eum ut.\n\nExplicabo amet ut et odit esse quos dolores earum. Voluptatem non molestiae rerum aperiam placeat est nam. Modi occaecati sint enim dolor eveniet fugit.\n\nEa natus atque quam asperiores laudantium fugit sit. Impedit dolor consequuntur corporis et id. Ut consequatur odio autem.\n\nImpedit dicta eum maiores maxime repellendus. Nemo soluta exercitationem explicabo facilis quia dolor. Adipisci aut et minus aut. Officia vero minus vero enim voluptas officia.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?27123",
+            "sku": 7475,
+            "discount": "0.96",
+            "price": "1085.07",
+            "created_at": "2020-03-03 03:29:35",
+            "updated_at": "2020-03-11 04:10:39"
+        },
+        {
+            "id": 31,
+            "name": "at",
+            "description": "Est nesciunt eum eius expedita eos ipsa. Dolores ipsa et et id asperiores qui ut reiciendis. Quo perspiciatis excepturi non repudiandae adipisci. Velit saepe molestiae nulla et asperiores provident tempora.\n\nQuasi a expedita porro non expedita. Eos quia ad quis saepe voluptatibus ipsam. Ipsum quia et voluptatem ea sit. Adipisci cupiditate facere voluptatibus ad et eveniet. Iusto sed optio magnam assumenda non eos.",
+            "content": "Excepturi vitae est dolorem. Culpa aperiam minus fugit ut. Deserunt expedita nam sit voluptatem consequatur commodi. Quam ipsa quisquam atque autem dolores inventore amet. Temporibus voluptatem qui non adipisci.\n\nFugiat nesciunt eos asperiores molestias sed non fuga. Modi at enim sit animi. Reiciendis et ut atque minima.\n\nQui magni amet ad reiciendis dignissimos sapiente et. Iusto nostrum tenetur sit ut quia assumenda. Sit accusamus autem et rerum provident ut provident at. A voluptatem quia ipsa culpa beatae deserunt ut.\n\nSunt ipsam voluptatem quibusdam eaque voluptatem enim. Natus rerum eum alias et dolorem. Officiis a ut suscipit harum nostrum iste. Sint inventore provident ullam laudantium ut.\n\nInventore aut velit molestiae ut quis ut. Commodi sapiente hic consequuntur illum. Molestias laborum occaecati sed dignissimos distinctio et aut. Similique enim blanditiis harum temporibus doloribus.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?53132",
+            "sku": 8509,
+            "discount": "0.82",
+            "price": "217.25",
+            "created_at": "2020-03-26 11:46:48",
+            "updated_at": "2020-03-19 03:36:22"
+        },
+        {
+            "id": 32,
+            "name": "quod",
+            "description": "Deserunt est ratione reiciendis esse qui accusantium eum aut. Quia qui tempore beatae magnam. Ipsa aut non qui sed sit rerum ipsum.\n\nIpsum occaecati cumque odio. Natus illo nulla similique rerum natus velit cumque inventore. Dolores nesciunt et officiis reprehenderit delectus adipisci. Cum tempora temporibus et aut illo.",
+            "content": "Ea pariatur maiores odit commodi culpa deleniti. Qui magnam repellat totam iure.\n\nPerferendis mollitia accusantium mollitia modi iste. Unde ipsum dolorem ad quis facilis. Est porro accusamus delectus dolorem nisi. Delectus inventore eum qui quisquam vel quia dicta.\n\nFugit doloremque dolorum libero a. Reiciendis odit voluptatem hic molestias. Ratione rerum totam a sed quis.\n\nVelit mollitia non quasi omnis a ut eligendi nostrum. Dolor iste odio qui quaerat autem dolorum. Atque maxime nostrum sed mollitia nam voluptate temporibus. Assumenda maxime inventore cumque nam rem corrupti.\n\nLibero voluptates enim fuga iusto vitae. Ut iure impedit autem ut. Cumque ut quis vel in et porro distinctio.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?52548",
+            "sku": 2499,
+            "discount": "0.92",
+            "price": "775.67",
+            "created_at": "2020-01-26 01:56:08",
+            "updated_at": "2020-03-25 01:48:15"
+        },
+        {
+            "id": 33,
+            "name": "assumenda",
+            "description": "Qui dolor tempora quia veniam aspernatur. Odit officia quam corrupti perspiciatis optio at. Corporis temporibus non corrupti quos laudantium eum enim dolorem.\n\nDistinctio voluptatem non qui dolores possimus ullam magni. Maiores iure illo quis dolorem odio aut.",
+            "content": "Consectetur consequatur ipsum rerum molestiae. Dicta consequatur tempore quod vel.\n\nQui accusamus et adipisci molestias minus occaecati quia. A rerum soluta cumque dolorem nisi. Et qui fuga dignissimos ut iure porro quasi. Magni ipsa ut et repellendus illum est ut.\n\nDolor et debitis iure in facilis hic consequatur. Error saepe facere porro. Aut sint dignissimos unde voluptas qui at tempore.\n\nQuibusdam quis debitis ipsam. Error consequatur neque eius amet corrupti.\n\nInventore quia cupiditate alias culpa. Quo qui distinctio unde enim dicta ab. Sit esse quisquam magni ipsum maxime quod occaecati.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?14301",
+            "sku": 9383,
+            "discount": "0.97",
+            "price": "817.26",
+            "created_at": "2020-01-14 22:53:09",
+            "updated_at": "2020-04-04 08:28:47"
+        },
+        {
+            "id": 34,
+            "name": "facere",
+            "description": "Ut commodi in laborum sapiente eum dolores voluptatibus voluptatum. Eum perspiciatis et eveniet est iste. Praesentium aliquid quo rerum explicabo ea maxime soluta. Commodi voluptas non laudantium deleniti architecto ea. Laboriosam perspiciatis eveniet numquam rerum rerum nisi beatae quia.\n\nQuis rerum nostrum earum veritatis dolorem fugit quam. Est culpa ipsa nemo minus inventore adipisci vel. Aliquam repellat sunt consequatur. Quaerat ab praesentium eius aperiam veritatis at exercitationem.",
+            "content": "Fuga eaque eum consectetur qui occaecati. Eligendi nihil officia animi sint vitae unde a neque. Quasi dolores veniam soluta quaerat. Laboriosam quam rerum ut reprehenderit harum expedita magni ad.\n\nUt quaerat sit consequatur. Dolorem et error facere unde. Mollitia suscipit non saepe. Aut rerum vero veniam.\n\nQuod temporibus quisquam voluptatum enim sit voluptates ea. Nesciunt fugiat odit quod commodi voluptatem ut laborum aut. Sit ea enim a architecto perferendis soluta neque.\n\nQuae sed consequuntur minus quaerat cupiditate earum. Minima non rerum atque corrupti iure dicta. Ea enim saepe quae reprehenderit. Ut laborum veritatis quaerat rerum inventore.\n\nQuia qui ex sed provident tempora tenetur voluptatem. Vero minus eveniet beatae est aperiam et omnis. Qui optio eos itaque voluptatem aut autem.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?10895",
+            "sku": 7397,
+            "discount": "0.82",
+            "price": "806.95",
+            "created_at": "2020-03-28 13:54:55",
+            "updated_at": "2020-03-26 03:44:23"
+        },
+        {
+            "id": 35,
+            "name": "ea",
+            "description": "Architecto delectus fugit sunt reprehenderit est consequatur. Inventore provident inventore officiis voluptatem ipsam alias.\n\nIpsum voluptatem ut eligendi tenetur alias ex. Voluptas sunt dolor dolores maiores. Ipsa odit sunt pariatur eligendi vitae autem quod qui. Sed totam qui adipisci sed dolorum quod nobis.",
+            "content": "Et deleniti reprehenderit consequatur vitae. Incidunt consequuntur ut velit qui ex sit ullam. Voluptate corrupti cum dolore sunt voluptatem sed odio. Rem id ex earum illum aspernatur consequuntur.\n\nVeniam labore officia facere soluta. Provident et enim voluptas dolor repudiandae facilis et. Similique nihil in aut consequatur aliquam.\n\nUt et voluptas fugiat quidem est aut. Occaecati maiores mollitia natus velit rerum iure sapiente. In dolores qui reiciendis iure libero.\n\nEum sit et libero quas. Fugit ipsam est et consequatur accusamus incidunt quo. Autem cum voluptatem consequatur voluptatem sequi. Ullam rerum adipisci et et. Necessitatibus omnis laboriosam quis sunt eos neque ad.\n\nMolestiae molestiae itaque nobis ad vero quae. Ducimus enim totam deserunt aliquam.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?95145",
+            "sku": 1726,
+            "discount": "0.99",
+            "price": "886.21",
+            "created_at": "2020-02-20 15:43:43",
+            "updated_at": "2020-03-18 17:54:53"
+        },
+        {
+            "id": 36,
+            "name": "sit",
+            "description": "Eum ex veniam fuga est deleniti corporis deserunt qui. Facilis illum porro quos aut maiores velit accusamus. Ipsum dolorum qui aut incidunt laborum. Distinctio corrupti atque id voluptatem.\n\nSimilique et quis quod eveniet cumque. Voluptas quo recusandae voluptatibus animi totam velit sequi. Velit voluptatem voluptas consequatur reprehenderit molestias nihil.",
+            "content": "Vitae perspiciatis dolore ex corrupti quasi sed ipsa. Nam voluptas labore quaerat nulla. Et aut eaque sed fuga id. Eos nulla odit delectus quasi autem.\n\nMagnam dolorum ipsa quaerat eligendi laudantium reiciendis. Est consequuntur autem illo eveniet quae ex. Adipisci vero eum esse aut. Suscipit facere qui animi harum sequi officia molestiae.\n\nQui architecto molestiae doloremque voluptas ipsam. Dolorem officia veniam minima tempore earum animi officia. Laborum amet dolorum quaerat.\n\nOfficiis cumque autem laborum voluptatem. Dolor perspiciatis aut est adipisci voluptatem illum aut. Quia nobis et omnis autem et est incidunt.\n\nFacere quo qui quibusdam et esse. Porro omnis nostrum ullam et tenetur alias rerum. Porro dolores adipisci tempore qui. Sint atque recusandae libero voluptas nihil.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?24609",
+            "sku": 1333,
+            "discount": "0.85",
+            "price": "433.38",
+            "created_at": "2020-02-13 01:27:01",
+            "updated_at": "2020-03-09 05:52:42"
+        },
+        {
+            "id": 37,
+            "name": "dolorem",
+            "description": "In esse deleniti eum est ullam quia. Sunt veritatis commodi facilis architecto. Animi nihil neque vel neque.\n\nSit in sit velit sequi reprehenderit distinctio est nobis. Ut omnis ipsum mollitia modi quo sed. Ipsam maiores nesciunt illo cum.",
+            "content": "Explicabo accusantium voluptate ea omnis et laboriosam rem neque. Temporibus vero assumenda sit et sunt. Enim culpa voluptatem non.\n\nEt accusamus vitae eos molestiae nihil distinctio molestiae est. Sed enim magnam possimus in mollitia sed voluptates. Numquam unde necessitatibus tempora ut quia dolorem dignissimos. Necessitatibus non consequuntur ea suscipit.\n\nConsequatur ut aut perferendis culpa vitae. Vel itaque hic nulla. Deleniti delectus aspernatur ipsa autem magnam aut. Saepe fugiat minus quibusdam.\n\nDolore doloremque neque dolores nulla modi numquam. Consequatur et quo saepe qui eos. Ut aut sunt iste voluptate et nesciunt possimus. Omnis voluptate quia facere.\n\nAspernatur eos voluptas recusandae quas nihil autem ducimus aut. Maxime repudiandae nihil illo impedit fugit optio aut vitae. Voluptatem ut ipsum mollitia. Consequatur voluptas et illum similique voluptas enim. Architecto in aut nam dolore non porro.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?34182",
+            "sku": 5493,
+            "discount": "0.85",
+            "price": "407.49",
+            "created_at": "2020-03-19 15:31:33",
+            "updated_at": "2020-03-18 03:29:11"
+        },
+        {
+            "id": 38,
+            "name": "rerum",
+            "description": "Voluptatem vel velit accusamus ipsam qui est quis. Non minus molestiae similique autem. Eius est voluptatum accusantium itaque laborum. Corporis similique voluptas magnam libero tempora. Consequatur est accusamus nesciunt eos.\n\nQuo et et quibusdam et earum rem amet unde. Nemo in et sed doloribus. Beatae libero esse sint dolorum. Magnam ab ut tempora tenetur corrupti harum.",
+            "content": "Laudantium mollitia reprehenderit in doloribus iure consequatur et. Ut itaque modi sed recusandae ullam. Occaecati et voluptatum distinctio quod officiis. Omnis reiciendis qui voluptatibus consequuntur et. Consequuntur pariatur quasi est.\n\nDistinctio est aut aperiam sint vitae aut. In et voluptatem labore consequatur voluptas voluptate. Amet occaecati voluptates qui et facilis eum et. Incidunt suscipit perferendis debitis dolor ut.\n\nDoloribus velit magnam aliquid et ut consectetur. Officia enim quibusdam et omnis. Ipsam nesciunt est et tempore.\n\nVoluptas molestias animi sunt vero consequatur eaque sed. Et accusantium voluptatem repellendus repellat autem qui earum. Provident quis vel fugiat recusandae nobis expedita nesciunt id. Inventore et quam nemo et qui magni.\n\nDucimus voluptas aliquid neque eum. Officia aut ipsa quo doloremque eveniet quaerat hic doloremque. Harum at qui omnis ad.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?73153",
+            "sku": 1785,
+            "discount": "0.88",
+            "price": "356.92",
+            "created_at": "2020-01-26 10:47:16",
+            "updated_at": "2020-04-03 13:59:09"
+        },
+        {
+            "id": 39,
+            "name": "nihil",
+            "description": "Unde molestiae architecto vel numquam reprehenderit nihil consequatur. Nam est facere laboriosam ad. Excepturi ad non et consequuntur neque quis.\n\nQuaerat debitis deserunt totam tenetur earum sunt qui. Necessitatibus aut placeat magnam sint et aut debitis. Quidem minus ut natus est. Vitae enim quaerat officiis soluta mollitia iure esse corrupti.",
+            "content": "Aut ut vitae eos quo. Tempora doloribus sunt aut nemo. Rerum eos ut incidunt adipisci.\n\nVoluptatem quo culpa vitae architecto pariatur vitae aperiam eum. Pariatur est est nemo recusandae eveniet voluptatem repellendus. Et culpa aut culpa qui excepturi et. Earum sed ratione eligendi saepe possimus est.\n\nSed et sit aspernatur numquam aspernatur ut alias. Impedit dignissimos voluptatibus minus itaque harum ut exercitationem. Et modi adipisci deserunt nihil expedita.\n\nAccusantium sunt in facilis est alias et. Consequatur modi temporibus cumque voluptas. Fuga quas excepturi optio dolorem praesentium hic.\n\nDolores aut quia maxime nihil deleniti. Eos illo necessitatibus eligendi quia voluptatem dolorem vitae. Deserunt omnis architecto impedit. Laboriosam qui et non sequi aut laudantium dignissimos.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?91441",
+            "sku": 6974,
+            "discount": "0.92",
+            "price": "313.42",
+            "created_at": "2020-03-08 05:51:15",
+            "updated_at": "2020-03-29 12:16:34"
+        },
+        {
+            "id": 40,
+            "name": "facere",
+            "description": "Assumenda occaecati numquam doloribus aperiam sit. Ut aut placeat nobis qui necessitatibus id.\n\nQuod eligendi mollitia omnis est qui velit id. Rerum iste atque est nam. Laborum nesciunt accusamus aliquam vitae. Nesciunt impedit voluptates molestiae.",
+            "content": "A ipsa ea iusto non qui iste. Nulla fuga voluptatum qui veritatis illum perspiciatis laudantium. Qui autem quod officia laborum in itaque unde.\n\nBlanditiis earum repellat et sequi aut et eos eum. Rem non magnam praesentium repellat. Ipsam recusandae sint eligendi rerum deserunt.\n\nIllum laborum repudiandae molestias aspernatur. Eaque provident minima sequi eius aut neque. Libero ut ab ab dolor nesciunt magnam commodi.\n\nCorporis earum veniam et ut quidem. Ut architecto occaecati iusto aperiam. Voluptas optio natus iste. Laborum iure impedit cumque qui nihil.\n\nProvident voluptatem earum ut debitis repudiandae. Fugiat est eaque commodi ut aperiam. Voluptatem commodi sint et quo doloremque dolores reiciendis. Labore omnis totam veritatis nihil rerum sed inventore.",
+            "imageURL": "https:\/\/lorempixel.com\/640\/480\/?41982",
+            "sku": 2917,
+            "discount": "0.81",
+            "price": "921.65",
+            "created_at": "2020-03-22 21:39:34",
+            "updated_at": "2020-03-19 12:40:29"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/products`
+
+
+<!-- END_76300d5345bd64fb536d206dedd74060 -->
+
+<!-- START_f18c28c307fafff016e0181f1a4d32c0 -->
+## Store a newly created Product in storage.
+
+POST /products
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/v1/admin/products" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/products"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/v1/admin/products`
+
+
+<!-- END_f18c28c307fafff016e0181f1a4d32c0 -->
+
+<!-- START_22cc821e57987b2ceda7660370d5cd32 -->
+## Display the specified Product.
+
+GET|HEAD /products/{id}
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/v1/admin/products/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/products/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (400):
+
+```json
+{
+    "success": false,
+    "message": "Product not found"
+}
+```
+
+### HTTP Request
+`GET api/v1/admin/products/{product}`
+
+
+<!-- END_22cc821e57987b2ceda7660370d5cd32 -->
+
+<!-- START_4ac22e2c6fe07d93ccb370fae1ab36a5 -->
+## Update the specified Product in storage.
+
+PUT/PATCH /products/{id}
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/v1/admin/products/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/products/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/v1/admin/products/{product}`
+
+`PATCH api/v1/admin/products/{product}`
+
+
+<!-- END_4ac22e2c6fe07d93ccb370fae1ab36a5 -->
+
+<!-- START_ecd029b27742f6ca252df682498c4318 -->
+## Remove the specified Product from storage.
+
+DELETE /products/{id}
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/v1/admin/products/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/v1/admin/products/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/v1/admin/products/{product}`
+
+
+<!-- END_ecd029b27742f6ca252df682498c4318 -->
+
+

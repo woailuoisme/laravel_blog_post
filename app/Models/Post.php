@@ -11,10 +11,10 @@ class Post extends Model
 {
 //    use SoftDeletes;
 
-    public $table = 'posts';
+    public  $table = 'posts';
 
 
-    protected $dates = ['deleted_at'];
+    protected array $dates = ['deleted_at'];
 
 
     public array $fillable = [

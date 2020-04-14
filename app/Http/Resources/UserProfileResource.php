@@ -15,7 +15,8 @@ class UserProfileResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'avatar'=> $this->avatar,
+            'avatar'=> $this->avatar||'',
+            'avatar_url'=>$this->when($this->avatar,$this->avatarUrl()),
             'name' => $this->user->name,
             'email' =>$this->user->email,
         ];

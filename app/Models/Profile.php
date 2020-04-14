@@ -11,14 +11,14 @@ class Profile extends Model
 {
 //    use SoftDeletes;
 
-    public $table = 'profiles';
+    public  $table = 'profiles';
 
 
-    protected $dates = ['deleted_at'];
+    protected array $dates = ['deleted_at'];
 
 
     public array $fillable = [
-        'avatar'
+        'avatar','user_id'
     ];
 
     /**

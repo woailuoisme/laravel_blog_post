@@ -15,10 +15,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
 
-    public $table = 'products';
+    public  $table = 'products';
 
 
-    protected $dates = ['deleted_at'];
+    protected array $dates = ['deleted_at'];
 
 
     public array $fillable = [
@@ -56,6 +56,41 @@ class Product extends Model
     public function carts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Cart::class,'cart_product')->withPivot('quantity')->withTimestamps();
+    }
+
+    public function likeUsers(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(User::class,'user_like')->withPivot('like')->withTimestamps();
+    }
+
+    public function upLikes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->likeUsers()->wherePivot('vote', 1);
+    }
+
+
+
+
+    public function downLikes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->likeUsers()->wherePivot('vote', -1);
+    }
+    public function upLikesUserCount(): int
+    {
+        return $this->likeUsers()->count();
+    }
+
+    public function downLikesUserCount(): int
+    {
+        return $this->likeUsers()->wherePivot('vote', -1)->count();
+    }
+    public function likeCount(){
+        return $this->upLikes()->sum('like')+$this->downLikes()->sum('like');
+    }
+
+    public function checkUserLike($user_id): bool
+    {
+        return $this->likeUsers()->wherePivot('user_id', $user_id)->exists();
     }
 
 }

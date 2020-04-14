@@ -14,10 +14,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Transaction extends Model
 {
 
-    public $table = 'transactions';
+    public  $table = 'transactions';
 
 
-    protected $dates = ['deleted_at'];
+    protected array $dates = ['deleted_at'];
 
 
     public array $fillable = [

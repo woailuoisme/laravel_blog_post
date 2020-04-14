@@ -9,10 +9,10 @@ class Tag extends Model
 {
 //    use SoftDeletes;
 
-    public $table = 'tags';
+    public  $table = 'tags';
 
 
-    protected $dates = ['deleted_at'];
+    protected array $dates = ['deleted_at'];
 
 
     public array $fillable = [

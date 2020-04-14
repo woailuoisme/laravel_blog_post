@@ -11,10 +11,10 @@ class Comment extends Model
 {
 //    use SoftDeletes;
 
-    public $table = 'comments';
+    public  $table = 'comments';
 
 
-    protected $dates = ['deleted_at'];
+    protected array $dates = ['deleted_at'];
 
 
     public array $fillable = [

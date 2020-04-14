@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
 class Handler extends ExceptionHandler
 {
@@ -66,7 +70,7 @@ class Handler extends ExceptionHandler
      *
      * @param $request
      * @param Exception $exception
-     * @return SymfonyResponse
+     * @return \Illuminate\Http\JsonResponse|Response
      */
     protected function renderExceptionAsJson($request, Exception $exception)
     {
@@ -76,9 +80,8 @@ class Handler extends ExceptionHandler
         // Default response
         $response = [
             'success' => false,
-            'error' => 'Sorry, something went wrong.'
+            'message' => 'Sorry, something went wrong.'
         ];
-
         // Add debug info if app is in debug mode
         if (config('app.debug')) {
             // Add the exception class name, message and stack trace to response
@@ -94,21 +97,20 @@ class Handler extends ExceptionHandler
                 return $this->convertValidationExceptionToResponse($exception, $request);
             case $exception instanceof AuthenticationException:
                 $status = 401;
-                $response['error'] = Response::$statusTexts[$status];
+                $response['message'] = Response::$statusTexts[$status];
                 break;
-            case $exception instanceof ModelNotFoundException:
-                $status = 404;
-                $response['error'] = Response::$statusTexts[$status];
+            case $exception instanceof UnauthorizedHttpException:
+                $status = 401;
+                $response['message'] = $exception->getMessage();
                 break;
             case $this->isHttpException($exception):
                 $status = $exception->getStatusCode();
-                $response['error'] = Response::$statusTexts[$status];
+                $response['message'] = Response::$statusTexts[$status];
                 break;
             default:
-                $response['error'] = $exception->getMessage();
+                $response['message'] = $exception->getMessage();
                 break;
         }
-
         return response()->json($response, $status);
     }
 }

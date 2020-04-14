@@ -13,18 +13,38 @@ use Eloquent as Model;
 class Order extends Model
 {
 
-    public $table = 'orders';
+    public const ORDER_STATUS_PAY_PENDING = 'pay_pending';  // 未支付
+    public const ORDER_STATUS_PAY_SUCCESS = 'pay_success';    // 已支付
+    public const ORDER_STATUS_PAY_CLOSE = 'closed';    // 已关闭
 
-    protected $dates = ['deleted_at'];
+    public const ORDER_STATUS_SHIP_PENDING = 'ship_pending';  // 未发货
+    public const ORDER_STATUS_SHIP_DELIVERED = 'ship_delivered';  // 已发货
+    public const ORDER_STATUS_SHIP_RECEIVED = 'ship_received';    // 已收货
 
-    public static array $STATUS_CODE = [
-        'created' => 'created',
-        'pending' => 'pending',
-        'processing' => 'processing',
-        'payed' => 'payed',
-        'completed' => 'canceled',
-        'failed' => 'failed'
+    public const ORDER_STATUS_REFUND_PENDING = 'refund_pending';    // 未退款
+    public const ORDER_STATUS_REFUND_APPLIED = 'refund_applied';    // 已申请退款
+    public const ORDER_STATUS_REFUND_PROCESSING = 'refund_processing';  // 退款中
+    public const ORDER_STATUS_REFUND_SUCCESS = 'refund_success';    // 退款成功
+    public const ORDER_STATUS_REFUND_FAILED = 'refund_failed';  // 退款失败
+
+    public static array $refundStatusMap = [
+        self::ORDER_STATUS_PAY_CLOSE =>'已关闭',
+        self::ORDER_STATUS_PAY_PENDING =>'未支付',
+        self::ORDER_STATUS_PAY_SUCCESS =>'已支付',
+        self::ORDER_STATUS_REFUND_PENDING => '未退款',
+        self::ORDER_STATUS_REFUND_APPLIED => '已申请退款',
+        self::ORDER_STATUS_REFUND_PROCESSING => '退款中',
+        self::ORDER_STATUS_REFUND_SUCCESS => '退款成功',
+        self::ORDER_STATUS_REFUND_FAILED => '退款失败',
+        self::ORDER_STATUS_SHIP_PENDING => '未发货',
+        self::ORDER_STATUS_SHIP_DELIVERED => '已发货',
+        self::ORDER_STATUS_SHIP_RECEIVED => '已收货',
     ];
+
+
+    public  $table = 'orders';
+
+    protected array $dates = ['deleted_at'];
 
     public array $fillable = [
         'user_id', 'statusCode', 'order_num', 'total_price'
@@ -66,7 +86,7 @@ class Order extends Model
         return $this->products->count();
     }
 
-    public function totalproductsPrice()
+    public function totalProductsPrice()
     {
         $Totals = 0;
         foreach ($this->products as $product) {
